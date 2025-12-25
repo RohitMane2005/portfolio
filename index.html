@@ -118,7 +118,12 @@
         </p>
         <div class="project-buttons">
           <a href="https://github.com/RohitMane2005/portfolio" class="project-btn code">View Code</a>
-          <a href="https://rohitmane2005.github.io/portfolio/" class="project-btn preview">Live Preview</a>
+          <a href="#"
+   class="project-btn preview"
+   data-preview-url="https://rohitmane2005.github.io/portfolio/">
+   Live Preview
+</a>
+
         </div>
       </div>
 
@@ -190,6 +195,14 @@
   <script src="script.js"></script>
 
   <div id="toast"></div>
+  <!-- Live Preview Modal -->
+<div id="preview-modal" class="preview-modal">
+  <div class="preview-content">
+    <button class="close-preview" aria-label="Close preview">&times;</button>
+    <iframe id="preview-frame" src="" title="Live Project Preview"></iframe>
+  </div>
+</div>
+
 
 </body>
 
