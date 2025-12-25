@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xsor-Developer portfolio</title>
+
+  <!-- Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cfilter id='g'%3E%3CfeGaussianBlur stdDeviation='3.5' result='b'/%3E%3CfeMerge%3E%3CfeMergeNode in='b'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='%23020617'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-size='42' font-family='monospace' fill='%2300f2ff' filter='url(%23g)'%3E%26lt;/%26gt;%3C/text%3E%3C/svg%3E">
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">XSO<span>R</span></div>
+
+    <!-- Menu Button (accessible) -->
+
+    <button id="menu-icon" aria-label="Toggle navigation" aria-expanded="false">
+      <i class='bx bx-menu'></i>
+    </button>
+
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+
+    </nav>
+  </header>
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm <span>Elite Developer</span></h1>
+      <h2 class="typing"></h2>
+      <p>
+        Java-focused developer building responsive web interfaces and
+        scalable applications with clean code and strong fundamentals.
+      </p>
+
+
+      <div class="buttons">
+        <a href="#projects" class="btn primary">View Work</a>
+        <a href="#contact" class="btn">Hire Me</a>
+      </div>
+
+      <!-- Hero Socials (moved inside hero-content) -->
+      <div class="hero-socials">
+        <a href="https://github.com/RohitMane2005" target="_blank" aria-label="GitHub">
+          <i class='bx bxl-github'></i>
+        </a>
+        <a href="https://www.linkedin.com/in/rohit-mane-570487333/" target="_blank" aria-label="LinkedIn">
+          <i class='bx bxl-linkedin'></i>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitbusiness9115@gmail.com" target="_blank"
+          rel="noopener" aria-label="Email">
+          <i class='bx bx-envelope'></i>
+        </a>
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="about" class="about">
+    <h2 class="section-title">About Me</h2>
+    <p>Professional web developer focused on clean UI, smooth UX, and scalable frontend systems.</p>
+
+    <div class="skills">
+      <span><i class='bx bxl-java'></i> Java</span>
+      <span><i class='bx bxl-html5'></i> HTML</span>
+      <span><i class='bx bxl-css3'></i> CSS</span>
+      <span><i class='bx bxl-javascript'></i> JavaScript</span>
+      <span><i class='bx bx-code-alt'></i> Data Structures & Algorithms</span>
+      <span><i class='bx bx-cube'></i> Object-Oriented Programming</span>
+      <span><i class='bx bxl-github'></i> Git & GitHub</span>
+    </div>
+
+  </section>
+
+  <section id="projects" class="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>DSA Practice Programs</h3>
+        <p>
+          Collection of Java programs implementing core data structures
+          and algorithms such as arrays, linked lists, recursion, and sorting.
+        </p>
+        <div class="project-buttons">
+          <a href="#" class="project-btn code">View Code</a>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <h3>Responsive Portfolio Website</h3>
+        <p>
+          Personal portfolio built using HTML, CSS, and JavaScript with
+          responsive layout, smooth animations, and clean UI design.
+        </p>
+        <p class="tech">
+          <strong>Tech:</strong> Html, Css, JavaScript
+        </p>
+        <div class="project-buttons">
+          <a href="#" class="project-btn code">View Code</a>
+          <a href="#" class="project-btn preview">Live Preview</a>
+        </div>
+      </div>
+
+
+      <div class="project-card">
+        <h3>Library Management System (Java + JDBC)</h3>
+
+        <p>
+          Console-based Library Management System built using Java, JDBC, and MySQL.
+          Implements role-based access (Admin/User)
+        </p>
+        <p class="tech">
+          <strong>Tech:</strong> Java, JDBC, MySQL, DAO Pattern
+        </p>
+        <div class="project-buttons">
+          <a href="https://github.com/RohitMane2005/library-management-system" target="_blank" class="project-btn code">
+            View Code
+          </a>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact</h2>
+    <form id="contact-form">
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="email" name="from_email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+
+      <!-- reCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="6LcfUTYsAAAAANR2QxUWBSuAm_HreXUeiwseqmey"></div>
+
+      <!-- Button with spinner -->
+      <button type="submit" id="submit-btn">
+        <span class="btn-text">Send Message</span>
+        <span class="spinner"></span>
+      </button>
+
+      <p id="form-status"></p>
+    </form>
+
+
+  </section>
+
+  <footer class="footer">
+    <div class="socials">
+      <a href="https://github.com/rohitmane2005" target="_blank" aria-label="GitHub">
+        <i class='bx bxl-github'></i>
+      </a>
+      <a href="https://www.linkedin.com/in/rohit-mane-570487333/" target="_blank" aria-label="LinkedIn">
+        <i class='bx bxl-linkedin'></i>
+      </a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitbusiness9115@gmail.com" target="_blank" rel="noopener"
+        aria-label="Email">
+        <i class='bx bx-envelope'></i>
+      </a>
+
+
+    </div>
+
+    <p>© <span id="year"></span> Elite Developer</p>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="script.js"></script>
+
+  <div id="toast"></div>
+
+</body>
+
+</html>
