@@ -184,3 +184,53 @@ contactForm.addEventListener("submit", function (e) {
         showToast("Failed to send message. Try again.", "error");
     });
 });
+
+// =======================
+// Live Preview Modal (FIXED & SAFE)
+// =======================
+document.addEventListener("DOMContentLoaded", () => {
+
+    const previewModal = document.getElementById("preview-modal");
+    const previewFrame = document.getElementById("preview-frame");
+    const closePreview = document.querySelector(".close-preview");
+    const previewButtons = document.querySelectorAll(".project-btn.preview");
+
+    if (!previewModal || !previewFrame || !closePreview || previewButtons.length === 0) {
+        console.warn("Live Preview elements not found");
+        return;
+    }
+
+    previewButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const url = btn.dataset.previewUrl;
+            if (!url) {
+                console.error("Missing data-preview-url");
+                return;
+            }
+
+            previewFrame.src = url;
+            previewModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    closePreview.addEventListener("click", () => {
+        previewModal.classList.remove("active");
+        previewFrame.src = "";
+        document.body.style.overflow = "";
+    });
+
+    previewModal.addEventListener("click", (e) => {
+        if (e.target === previewModal) {
+            closePreview.click();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && previewModal.classList.contains("active")) {
+            closePreview.click();
+        }
+    });
+});
