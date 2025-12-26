@@ -731,8 +731,8 @@ section {
 
 .close-preview {
     position: absolute;
-    top: 10px;
-    right: 14px;
+    top: 44px;
+    right: 0px;
     background: none;
     border: none;
     color: white;
@@ -777,7 +777,7 @@ section {
 
 .preview-controls button:hover,
 .preview-controls a:hover {
-    background: #00f2ff;
+    background: #00e5f1;
     color: #000;
 }
 
