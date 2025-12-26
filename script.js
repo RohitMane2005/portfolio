@@ -185,52 +185,56 @@ contactForm.addEventListener("submit", function (e) {
     });
 });
 
+
 // =======================
-// Live Preview Modal (FIXED & SAFE)
+// Live Preview Modal (Advanced)
 // =======================
 document.addEventListener("DOMContentLoaded", () => {
 
     const previewModal = document.getElementById("preview-modal");
     const previewFrame = document.getElementById("preview-frame");
     const closePreview = document.querySelector(".close-preview");
-    const previewButtons = document.querySelectorAll(".project-btn.preview");
+    const fullscreenBtn = document.getElementById("fullscreen-btn");
+    const openSiteBtn = document.getElementById("open-site-btn");
 
-    if (!previewModal || !previewFrame || !closePreview || previewButtons.length === 0) {
-        console.warn("Live Preview elements not found");
-        return;
-    }
-
-    previewButtons.forEach(btn => {
+    document.querySelectorAll(".project-btn.preview").forEach(btn => {
         btn.addEventListener("click", (e) => {
             e.preventDefault();
 
             const url = btn.dataset.previewUrl;
-            if (!url) {
-                console.error("Missing data-preview-url");
-                return;
-            }
+            if (!url) return;
 
             previewFrame.src = url;
+            openSiteBtn.href = url;
+
             previewModal.classList.add("active");
+            previewModal.classList.remove("fullscreen");
             document.body.style.overflow = "hidden";
         });
     });
 
+    // Close
     closePreview.addEventListener("click", () => {
-        previewModal.classList.remove("active");
+        previewModal.classList.remove("active", "fullscreen");
         previewFrame.src = "";
         document.body.style.overflow = "";
     });
 
-    previewModal.addEventListener("click", (e) => {
-        if (e.target === previewModal) {
-            closePreview.click();
-        }
+    // Fullscreen toggle
+    fullscreenBtn.addEventListener("click", () => {
+        previewModal.classList.toggle("fullscreen");
     });
 
+    // Click outside
+    previewModal.addEventListener("click", (e) => {
+        if (e.target === previewModal) closePreview.click();
+    });
+
+    // ESC key
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && previewModal.classList.contains("active")) {
             closePreview.click();
         }
     });
 });
+
