@@ -28,16 +28,23 @@
 
     <!-- Menu Button (accessible) -->
 
-    <button id="menu-icon" aria-label="Toggle navigation" aria-expanded="false">
-      <i class='bx bx-menu'></i>
-    </button>
+  <button id="menu-icon"
+  aria-label="Toggle navigation"
+  aria-expanded="false"
+  aria-controls="navigation">
+  <i class='bx bx-menu'></i>
+</button>
+
+<nav class="nav-links" id="navigation">
 
 
     <nav class="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#resources">Resources</a>
       <a href="#contact">Contact</a>
+
 
     </nav>
   </header>
@@ -146,6 +153,67 @@
 
     </div>
   </section>
+<!-- ===================== RESOURCES HUB ===================== -->
+<section class="linktree" id="resources">
+
+  <h2>📚 Resources Hub</h2>
+  <p>Curated roadmaps, PDFs, scholarships & tools</p>
+
+  <!-- Search -->
+  <input type="text" id="resourceSearch" placeholder="Search resources..." />
+
+  <!-- Filters -->
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="dsa">DSA</button>
+    <button class="filter-btn" data-category="web">Web</button>
+    <button class="filter-btn" data-category="pdf">PDFs</button>
+    <button class="filter-btn" data-category="scholarship">Scholarships</button>
+    <button class="filter-btn" data-category="tools">Tools</button>
+  </div>
+
+  <!-- Links -->
+  <div class="links">
+
+    <a href="https://takeuforward.org/striver-dsa-sheet-top-coding-interview-problems/"
+       target="_blank" class="link-card" data-category="dsa">
+      🚀 Striver DSA Sheet
+      <span>Interview Prep</span>
+    </a>
+
+    <a href="https://roadmap.sh/frontend"
+       target="_blank" class="link-card" data-category="web">
+      🌐 Frontend Roadmap
+      <span>Beginner → Advanced</span>
+    </a>
+
+    <a href="https://roadmap.sh/java"
+       target="_blank" class="link-card" data-category="dsa">
+      ☕ Java Developer Roadmap
+      <span>Core → Advanced</span>
+    </a>
+
+    <a href="https://www.national-scholarship-portal.gov.in/"
+       target="_blank" class="link-card" data-category="scholarship">
+      💰 National Scholarship Portal
+      <span>Govt Financial Aid</span>
+    </a>
+
+    <a href="https://github.com/Developer-Y/cs-video-courses"
+       target="_blank" class="link-card" data-category="tools">
+      🎥 CS Video Courses
+      <span>Free GitHub Resource</span>
+    </a>
+
+    <a href="https://drive.google.com/"
+       target="_blank" class="link-card" data-category="pdf">
+      📄 My Notes & PDFs
+      <span>Java • DSA • Web</span>
+    </a>
+
+  </div>
+
+</section>
 
   <section id="contact" class="contact">
     <h2 class="section-title">Contact</h2>
@@ -205,7 +273,13 @@
         <button class="close-preview" title="Close">&times;</button>
       </div>
 
-      <iframe id="preview-frame" title="Live Project Preview"></iframe>
+<iframe
+  id="preview-frame"
+  title="Live Project Preview"
+  sandbox="allow-scripts allow-same-origin allow-forms"
+  loading="lazy">
+</iframe>
+
     </div>
   </div>
 
