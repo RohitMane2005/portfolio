@@ -59,80 +59,120 @@ body {
     overflow-x: hidden;
 }
 
-
 /* =====================================================
-   2. NAVBAR (GLASS + GLOW)
+   NAVBAR (GLASS + GLOW)
 ===================================================== */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--glass-dark);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--glass-border);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--glass-dark);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 900;
 }
 
 .logo {
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .logo span {
-    color: var(--accent);
-    text-shadow: var(--glow-text);
+  color: var(--accent);
+  text-shadow: var(--glow-text);
 }
 
-/* Navigation Links */
+/* Desktop Nav */
 .nav-links {
-    display: flex;
+  display: flex;
 }
 
 .nav-links a {
-    position: relative;
-    color: var(--text-main);
-    margin-left: 30px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+  position: relative;
+  color: var(--text-main);
+  margin-left: 30px;
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(
-        90deg,
-        var(--accent),
-        var(--accent-secondary)
-    );
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--accent);
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-secondary)
+  );
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 /* Menu Icon */
 #menu-icon {
-    background: none;
-    border: none;
-    font-size: 2.2rem;
-    color: var(--text-main);
-    cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: var(--text-main);
+  cursor: pointer;
+  display: none;
+}
+
+/* =====================
+   MOBILE NAVBAR (FINAL)
+===================== */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 16px 24px;
+  }
+
+  #menu-icon {
+    display: block;
+    z-index: 1200;
+  }
+
+  /* 👇 Clean dropdown menu */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
     display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    padding: 24px 0;
+
+    background: rgba(10, 10, 20, 0.9);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--glass-border);
+
+    z-index: 1100;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+  }
 }
 
 /* =====================================================
@@ -569,48 +609,14 @@ section {
     width: 100%;
 }
 
+.hidden {
+  display: none !important;
+}
 
 /* =====================================================
    13. RESPONSIVE STYLES
 ===================================================== */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 20px 30px;
-    }
 
-    #menu-icon {
-        display: block;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.95); /* kept exact opacity */
-        backdrop-filter: blur(20px);
-        display: none;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        margin: 15px 0;
-    }
-
-    section {
-        padding: 100px 8%;
-    }
-
-    .hero h1 {
-        font-size: 2.4rem;
-    }
-}
 
 @media (max-width: 480px) {
     .buttons {

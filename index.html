@@ -22,32 +22,29 @@
 </head>
 
 <body>
+<header class="navbar">
+  <div class="logo">XSO<span>R</span></div>
 
-  <header class="navbar">
-    <div class="logo">XSO<span>R</span></div>
+  <!-- Menu Button -->
+  <button
+    id="menu-icon"
+    aria-label="Toggle navigation"
+    aria-expanded="false"
+    aria-controls="navigation"
+  >
+    <i class="bx bx-menu"></i>
+  </button>
 
-    <!-- Menu Button (accessible) -->
+  <!-- Navigation -->
+  <nav class="nav-links" id="navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <button id="menu-icon"
-  aria-label="Toggle navigation"
-  aria-expanded="false"
-  aria-controls="navigation">
-  <i class='bx bx-menu'></i>
-</button>
-
-<nav class="nav-links" id="navigation">
-
-
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#resources">Resources</a>
-      <a href="#contact">Contact</a>
-
-
-    </nav>
-  </header>
   <section id="home" class="hero">
     <div class="hero-content">
       <h1>Hi, I'm <span>Elite Developer</span></h1>
@@ -216,8 +213,7 @@
       <input type="email" name="from_email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
 
-      <!-- reCAPTCHA -->
-      <div class="g-recaptcha" data-sitekey="6LcfUTYsAAAAANR2QxUWBSuAm_HreXUeiwseqmey"></div>
+     
 
       <!-- Button with spinner -->
       <button type="submit" id="submit-btn">
