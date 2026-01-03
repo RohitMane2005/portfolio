@@ -180,13 +180,7 @@ if (contactForm && submitBtn) {
   contactForm.addEventListener("submit", e => {
     e.preventDefault();
 
-    if (
-      typeof grecaptcha === "undefined" ||
-      grecaptcha.getResponse() === ""
-    ) {
-      showToast("Please verify reCAPTCHA", "error");
-      return;
-    }
+
 
     submitBtn.classList.add("loading");
 
@@ -194,7 +188,6 @@ if (contactForm && submitBtn) {
       .sendForm("service_chl7279", "template_3hzwpmg", contactForm)
       .then(() => {
         submitBtn.classList.remove("loading");
-        grecaptcha.reset();
         contactForm.reset();
         showToast("Message sent successfully!");
       })
