@@ -277,3 +277,4 @@ if (searchInput && cards.length) {
     });
   });
 }
+
