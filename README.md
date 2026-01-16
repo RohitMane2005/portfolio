@@ -4,6 +4,7 @@ A modern, responsive personal portfolio website built using **HTML, CSS, and Jav
 This project showcases my skills, projects, and includes a fully functional contact form.
 
 ## 🚀 Features
+
 - Responsive design (desktop, tablet, mobile)
 - Glassmorphism UI with smooth animations
 - Typing text animation in hero section
