@@ -16,6 +16,7 @@ This project showcases my skills, projects, and includes a fully functional cont
 - Accessible and clean UI
 
 ## 🛠 Tech Stack
+
 - HTML5
 - CSS3 (Flexbox & Grid)
 - JavaScript (Vanilla)
