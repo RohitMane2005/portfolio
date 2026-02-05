@@ -93,7 +93,7 @@ if (menuBtn && navLinks && navbar) {
 // =======================
 // Scroll Reveal Animation
 // =======================
-const revealElements = document.querySelectorAll("section, .project-card");
+const revealElements = document.querySelectorAll(".reveal");
 
 if (revealElements.length) {
   const revealObserver = new IntersectionObserver(
@@ -178,24 +178,28 @@ const submitBtn = document.getElementById("submit-btn");
 
 if (contactForm && submitBtn) {
   contactForm.addEventListener("submit", e => {
-    e.preventDefault();
+  e.preventDefault();
 
+  // Honeypot spam check
+  if (contactForm.company.value) return;
 
+  submitBtn.classList.add("loading");
+  submitBtn.disabled = true;
 
-    submitBtn.classList.add("loading");
-
-    emailjs
-      .sendForm("service_chl7279", "template_3hzwpmg", contactForm)
-      .then(() => {
-        submitBtn.classList.remove("loading");
-        contactForm.reset();
-        showToast("Message sent successfully!");
-      })
-      .catch(() => {
-        submitBtn.classList.remove("loading");
-        showToast("Failed to send message.", "error");
-      });
-  });
+  emailjs
+    .sendForm("service_chl7279", "template_3hzwpmg", contactForm)
+    .then(() => {
+      contactForm.reset();
+      showToast("Message sent successfully!");
+    })
+    .catch(() => {
+      showToast("Failed to send message. Try again.", "error");
+    })
+    .finally(() => {
+      submitBtn.classList.remove("loading");
+      submitBtn.disabled = false;
+    });
+});
 }
 
 // =======================

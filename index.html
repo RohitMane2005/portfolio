@@ -4,7 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xsor-portfolio</title>
+  <meta property="og:title" content="Rohit Mane | Java & Frontend Developer" />
+<meta property="og:description" content="Java-focused SDE portfolio with projects in DSA, frontend, and scalable systems." />
+<meta property="og:url" content="https://genzxr.in" />
+<meta property="og:type" content="website" />
+
+  <title>Rohit Mane | Java & Frontend Developer Portfolio</title>
+
+  <meta name="description"
+    content="Rohit Mane – Java-focused Software Development Engineer skilled in DSA, frontend development, and scalable web applications." />
+
 
   <!-- Icons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -22,28 +31,23 @@
 </head>
 
 <body>
-<header class="navbar">
-  <div class="logo">XSO<span>R</span></div>
+  <header class="navbar">
+    <div class="logo">XSO<span>R</span></div>
 
-  <!-- Menu Button -->
-  <button
-    id="menu-icon"
-    aria-label="Toggle navigation"
-    aria-expanded="false"
-    aria-controls="navigation"
-  >
-    <i class="bx bx-menu"></i>
-  </button>
+    <!-- Menu Button -->
+    <button id="menu-icon" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navigation">
+      <i class="bx bx-menu"></i>
+    </button>
 
-  <!-- Navigation -->
-  <nav class="nav-links" id="navigation">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#resources">Resources</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <!-- Navigation -->
+    <nav class="nav-links" id="navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#resources">Resources</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
   <section id="home" class="hero">
     <div class="hero-content">
@@ -79,7 +83,7 @@
   </section>
 
 
-  <section id="about" class="about">
+  <section id="about" class="about reveal">
     <h2 class="section-title">About Me</h2>
     <p>Professional web developer focused on clean UI, smooth UX, and scalable frontend systems.</p>
 
@@ -95,11 +99,11 @@
 
   </section>
 
-  <section id="projects" class="projects">
+  <section id="projects" class="projects reveal">
     <h2 class="section-title">Projects</h2>
 
     <div class="project-grid">
-      <div class="project-card">
+      <div class="project-card reveal">
         <h3>DSA Practice Programs</h3>
         <p>
           Collection of Java programs implementing core data structures
@@ -119,7 +123,7 @@
         </p>
         <p class="tech">
           <strong>Tech:</strong> Html, Css, JavaScript
-        
+
         </p>
         <div class="project-buttons">
           <a href="https://github.com/RohitMane2005/portfolio" class="project-btn code">View Code</a>
@@ -151,71 +155,69 @@
 
     </div>
   </section>
-<!-- ===================== RESOURCES HUB ===================== -->
-<section class="linktree" id="resources">
+  <!-- ===================== RESOURCES HUB ===================== -->
+  <section class="linktree" id="resources">
 
-  <h2>📚 Resources Hub</h2>
-  <p>Curated roadmaps, PDFs, scholarships & tools</p>
+    <h2>📚 Resources Hub</h2>
+    <p>Curated roadmaps, PDFs, scholarships & tools</p>
 
-  <!-- Search -->
-  <input type="text" id="resourceSearch" placeholder="Search resources..." />
+    <!-- Search -->
+    <input type="text" id="resourceSearch" placeholder="Search resources..." />
 
-  <!-- Filters -->
-  <div class="filters">
-    <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="dsa">DSA</button>
-    <button class="filter-btn" data-category="web">Web</button>
-    <button class="filter-btn" data-category="pdf">PDFs</button>
-    <button class="filter-btn" data-category="scholarship">Scholarships</button>
-    <button class="filter-btn" data-category="tools">Tools</button>
-  </div>
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="dsa">DSA</button>
+      <button class="filter-btn" data-category="web">Web</button>
+      <button class="filter-btn" data-category="pdf">PDFs</button>
+      <button class="filter-btn" data-category="scholarship">Scholarships</button>
+      <button class="filter-btn" data-category="tools">Tools</button>
+    </div>
 
-  <!-- Links -->
-  <div class="links">
+    <!-- Links -->
+    <div class="links">
 
-    <a href="https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z"
-       target="_blank" class="link-card" data-category="dsa">
-      🚀 Striver DSA Sheet
-      <span>Interview Prep</span>
-    </a>
+      <a href="https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" target="_blank" class="link-card"
+        data-category="dsa">
+        🚀 Striver DSA Sheet
+        <span>Interview Prep</span>
+      </a>
 
-    <a href="https://roadmap.sh/frontend"
-       target="_blank" class="link-card" data-category="web">
-      🌐 Frontend Roadmap
-      <span>Beginner → Advanced</span>
-    </a>
+      <a href="https://roadmap.sh/frontend" target="_blank" class="link-card" data-category="web">
+        🌐 Frontend Roadmap
+        <span>Beginner → Advanced</span>
+      </a>
 
-    <a href="https://docs.google.com/document/d/1oh2Bzq-MC13CtXWPHgeKITWTYLIcPM7u/edit?usp=sharing&ouid=113771930977027710170&rtpof=true&sd=true"
-       target="_blank" class="link-card" data-category="dsa">
-      ☕ Java Developer Roadmap
-      <span>Core → Advanced</span>
-    </a>
+      <a href="https://docs.google.com/document/d/1oh2Bzq-MC13CtXWPHgeKITWTYLIcPM7u/edit?usp=sharing&ouid=113771930977027710170&rtpof=true&sd=true"
+        target="_blank" class="link-card" data-category="dsa">
+        ☕ Java Developer Roadmap
+        <span>Core → Advanced</span>
+      </a>
 
-    <a href="https://scholarships.gov.in/"
-       target="_blank" class="link-card" data-category="scholarship">
-      💰 National Scholarship Portal
-      <span>Govt Financial Aid</span>
-    </a>
+      <a href="https://scholarships.gov.in/" target="_blank" class="link-card" data-category="scholarship">
+        💰 National Scholarship Portal
+        <span>Govt Financial Aid</span>
+      </a>
 
-    <a href="https://drive.google.com/"
-       target="_blank" class="link-card" data-category="pdf">
-      📄 My Notes & PDFs
-      <span>Java • DSA • Web</span>
-    </a>
-    
+      <a href="https://drive.google.com/" target="_blank" class="link-card" data-category="pdf">
+        📄 My Notes & PDFs
+        <span>Java • DSA • Web</span>
+      </a>
 
-  </div>
 
-</section>
+    </div>
+
+  </section>
 
   <section id="contact" class="contact">
     <h2 class="section-title">Contact</h2>
     <form id="contact-form">
+      <input type="text" name="company" tabindex="-1" autocomplete="off" class="hidden" />
       <input type="text" name="from_name" placeholder="Your Name" required>
       <input type="email" name="from_email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
 
-     
+
 
       <!-- Button with spinner -->
       <button type="submit" id="submit-btn">
@@ -250,9 +252,11 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 
-  <div id="toast"></div>
+
+  <div id="toast" aria-live="polite"></div>
+
   <!-- Live Preview Modal -->
   <!-- Live Preview Modal -->
   <div id="preview-modal" class="preview-modal">
@@ -265,12 +269,9 @@
         <button class="close-preview" title="Close">&times;</button>
       </div>
 
-<iframe
-  id="preview-frame"
-  title="Live Project Preview"
-  sandbox="allow-scripts allow-same-origin allow-forms"
-  loading="lazy">
-</iframe>
+      <iframe id="preview-frame" title="Live Project Preview" sandbox="allow-scripts allow-same-origin allow-forms"
+        loading="lazy">
+      </iframe>
 
     </div>
   </div>
