@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ember & Oak | Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">Ember <span>&</span> Oak</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reserve">Reserve</a></li>
+    </ul>
+    <button class="nav-cta">Book a Table</button>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Est. 2018 · Fine Dining</p>
+      <h1>Where Fire Meets<br><em>Flavour</em></h1>
+      <p class="hero-sub">Wood-fired cuisine crafted with locally sourced ingredients.<br>An experience worth savouring.</p>
+      <div class="hero-btns">
+        <a href="#reserve" class="btn-primary">Reserve a Table</a>
+        <a href="#menu" class="btn-ghost">View Menu</a>
+      </div>
+    </div>
+    <div class="hero-scroll">↓ Scroll</div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature">
+      <span class="feat-icon">🔥</span>
+      <h3>Wood-Fired Kitchen</h3>
+      <p>Every dish kissed by open flame, delivering depth of flavour you won't forget.</p>
+    </div>
+    <div class="feature">
+      <span class="feat-icon">🌿</span>
+      <h3>Farm to Table</h3>
+      <p>Seasonal produce sourced within 50km. Fresh. Honest. Delicious.</p>
+    </div>
+    <div class="feature">
+      <span class="feat-icon">🍷</span>
+      <h3>Curated Wine List</h3>
+      <p>Over 80 labels selected by our sommelier to complement every course.</p>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="menu-section">
+    <div class="section-label">Our Menu</div>
+    <h2>Crafted with Passion</h2>
+    <div class="menu-tabs">
+      <button class="tab active" data-tab="starters">Starters</button>
+      <button class="tab" data-tab="mains">Mains</button>
+      <button class="tab" data-tab="desserts">Desserts</button>
+    </div>
+    <div class="menu-grid" id="menu-grid">
+      <!-- Filled by JS -->
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-img">
+      <div class="about-img-inner"></div>
+      <div class="about-badge">15+ <span>Years of Craft</span></div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">Our Story</div>
+      <h2>A Labour of Love Since 2018</h2>
+      <p>Ember & Oak was born from a simple belief: the best food comes from the best ingredients, handled with care and cooked with fire. Chef Marco Rossi trained across Europe before returning home to build something lasting.</p>
+      <p>Our dining room seats 60 guests in an atmosphere that's warm without being stuffy — exposed oak beams, candlelight, and the quiet crackle of the hearth.</p>
+      <a href="#reserve" class="btn-primary">Meet Us Tonight</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-label">Reviews</div>
+    <h2>What Our Guests Say</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p>"The lamb was the finest I've had outside of Florence. We'll be back for every anniversary."</p>
+        <div class="testi-author">— Sarah & Tom H.</div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testi-card">
+        <p>"Booking our corporate dinner here was the best decision. Every guest was genuinely impressed."</p>
+        <div class="testi-author">— James R., CEO</div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="testi-card">
+        <p>"The tasting menu is an event in itself. Six courses of pure, thoughtful cooking."</p>
+        <div class="testi-author">— Priya M.</div>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVE -->
+  <section id="reserve" class="reserve-section">
+    <div class="reserve-content">
+      <div class="section-label">Reservations</div>
+      <h2>Join Us for Dinner</h2>
+      <p>Tuesday – Sunday · 6pm – 11pm<br>Walk-ins welcome, reservations recommended.</p>
+      <form class="reserve-form" onsubmit="handleReserve(event)">
+        <div class="form-row">
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email Address" required />
+        </div>
+        <div class="form-row">
+          <input type="date" required />
+          <select required>
+            <option value="">Select Time</option>
+            <option>6:00 PM</option>
+            <option>7:00 PM</option>
+            <option>8:00 PM</option>
+            <option>9:00 PM</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <select required>
+            <option value="">Number of Guests</option>
+            <option>1 Guest</option>
+            <option>2 Guests</option>
+            <option>3–4 Guests</option>
+            <option>5–6 Guests</option>
+            <option>Private Event (7+)</option>
+          </select>
+          <input type="text" placeholder="Special Requests (optional)" />
+        </div>
+        <button type="submit" class="btn-primary">Confirm Reservation</button>
+      </form>
+      <p id="reserve-msg" class="reserve-msg"></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">Ember <span>&</span> Oak</div>
+    <div class="footer-cols">
+      <div>
+        <h4>Location</h4>
+        <p>12 Hearthstone Lane<br>Mumbai, MH 400001</p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Tue – Sun<br>6:00 PM – 11:00 PM</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>+91 98765 43210<br>hello@emberandoak.com</p>
+      </div>
+    </div>
+    <p class="footer-note">© 2025 Ember & Oak · Demo site by <strong>Rohit Mane</strong> · <a href="https://genzxr.in">genzxr.in</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,13 +1,13 @@
 // =======================
-// Typing Effect (PROFILE ALIGNED)
+// Typing Effect
 // =======================
 const typing = document.querySelector(".typing");
 
 if (typing) {
   const texts = [
-    "Software Development Engineer",
-    "Java & DSA Enthusiast",
-    "Frontend Engineer"
+    "Freelance Web Developer",
+    "Java & Frontend Engineer",
+    "Building Sites That Convert"
   ];
 
   let textIndex = 0;
@@ -17,12 +17,11 @@ if (typing) {
   function typeEffect() {
     const current = texts[textIndex];
     typing.textContent = current.substring(0, charIndex);
-
     charIndex += isDeleting ? -1 : 1;
-    let speed = isDeleting ? 60 : 120;
+    let speed = isDeleting ? 55 : 110;
 
     if (!isDeleting && charIndex === current.length) {
-      speed = 1200;
+      speed = 1400;
       isDeleting = true;
     }
 
@@ -39,7 +38,7 @@ if (typing) {
 }
 
 // =======================
-// Mobile Menu (FINAL SAFE)
+// Mobile Menu
 // =======================
 const menuBtn = document.getElementById("menu-icon");
 const navLinks = document.querySelector(".nav-links");
@@ -51,20 +50,16 @@ if (menuBtn && navLinks && navbar) {
   function openMenu() {
     navLinks.classList.add("active");
     menuBtn.setAttribute("aria-expanded", "true");
-
     menuIcon.classList.remove("bx-menu");
     menuIcon.classList.add("bx-x");
-
     document.body.style.overflow = "hidden";
   }
 
   function closeMenu() {
     navLinks.classList.remove("active");
     menuBtn.setAttribute("aria-expanded", "false");
-
     menuIcon.classList.remove("bx-x");
     menuIcon.classList.add("bx-menu");
-
     document.body.style.overflow = "";
   }
 
@@ -84,14 +79,12 @@ if (menuBtn && navLinks && navbar) {
   );
 
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && navLinks.classList.contains("active")) {
-      closeMenu();
-    }
+    if (e.key === "Escape" && navLinks.classList.contains("active")) closeMenu();
   });
 }
 
 // =======================
-// Scroll Reveal Animation
+// Scroll Reveal
 // =======================
 const revealElements = document.querySelectorAll(".reveal");
 
@@ -105,17 +98,14 @@ if (revealElements.length) {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.12 }
   );
 
-  revealElements.forEach(el => {
-    el.classList.add("reveal");
-    revealObserver.observe(el);
-  });
+  revealElements.forEach(el => revealObserver.observe(el));
 }
 
 // =======================
-// Active Navbar (OPTIMIZED)
+// Active Navbar
 // =======================
 const sections = document.querySelectorAll("section");
 const navItems = document.querySelectorAll(".nav-links a");
@@ -129,7 +119,6 @@ window.addEventListener("scroll", () => {
       sections.forEach(section => {
         const top = section.offsetTop;
         const height = section.offsetHeight;
-
         if (scrollY >= top - 200 && scrollY < top + height - 200) {
           current = section.id;
         }
@@ -160,14 +149,13 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 function showToast(message, type = "success") {
   const toast = document.getElementById("toast");
   if (!toast) return;
-
   toast.textContent = message;
   toast.className = `show ${type}`;
-  setTimeout(() => (toast.className = ""), 3000);
+  setTimeout(() => (toast.className = ""), 3500);
 }
 
 // =======================
-// EmailJS Contact Form (SAFE)
+// EmailJS Contact Form
 // =======================
 if (typeof emailjs !== "undefined") {
   emailjs.init("eTl6eGjIuIEZNHmXY");
@@ -178,28 +166,28 @@ const submitBtn = document.getElementById("submit-btn");
 
 if (contactForm && submitBtn) {
   contactForm.addEventListener("submit", e => {
-  e.preventDefault();
+    e.preventDefault();
 
-  // Honeypot spam check
-  if (contactForm.company.value) return;
+    // Honeypot spam check
+    if (contactForm.company && contactForm.company.value) return;
 
-  submitBtn.classList.add("loading");
-  submitBtn.disabled = true;
+    submitBtn.classList.add("loading");
+    submitBtn.disabled = true;
 
-  emailjs
-    .sendForm("service_chl7279", "template_3hzwpmg", contactForm)
-    .then(() => {
-      contactForm.reset();
-      showToast("Message sent successfully!");
-    })
-    .catch(() => {
-      showToast("Failed to send message. Try again.", "error");
-    })
-    .finally(() => {
-      submitBtn.classList.remove("loading");
-      submitBtn.disabled = false;
-    });
-});
+    emailjs
+      .sendForm("service_chl7279", "template_3hzwpmg", contactForm)
+      .then(() => {
+        contactForm.reset();
+        showToast("Message sent! I'll reply within 24 hours ✓");
+      })
+      .catch(() => {
+        showToast("Failed to send. Please try again.", "error");
+      })
+      .finally(() => {
+        submitBtn.classList.remove("loading");
+        submitBtn.disabled = false;
+      });
+  });
 }
 
 // =======================
@@ -232,8 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (fullscreenBtn) {
-    fullscreenBtn.onclick = () =>
-      modal.classList.toggle("fullscreen");
+    fullscreenBtn.onclick = () => modal.classList.toggle("fullscreen");
   }
 
   modal.addEventListener("click", e => {
@@ -253,20 +240,11 @@ let activeCategory = "all";
 if (searchInput && cards.length) {
   function filterResources() {
     const query = searchInput.value.toLowerCase();
-
     cards.forEach(card => {
-      const matchesSearch = card.textContent
-        .toLowerCase()
-        .includes(query);
-
+      const matchesSearch = card.textContent.toLowerCase().includes(query);
       const matchesCategory =
-        activeCategory === "all" ||
-        card.dataset.category === activeCategory;
-
-      card.classList.toggle(
-        "hidden",
-        !(matchesSearch && matchesCategory)
-      );
+        activeCategory === "all" || card.dataset.category === activeCategory;
+      card.classList.toggle("hidden", !(matchesSearch && matchesCategory));
     });
   }
 
@@ -281,4 +259,3 @@ if (searchInput && cards.length) {
     });
   });
 }
-
