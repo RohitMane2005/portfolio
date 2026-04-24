@@ -2,6 +2,7 @@
 // Typing Effect
 // =======================
 const typing = document.querySelector(".typing");
+let typingTimer = null; // Store reference for potential cleanup
 
 if (typing) {
   const texts = [
@@ -16,6 +17,7 @@ if (typing) {
 
   function typeEffect() {
     const current = texts[textIndex];
+    // SECURITY: Use textContent (not innerHTML) to prevent XSS
     typing.textContent = current.substring(0, charIndex);
     charIndex += isDeleting ? -1 : 1;
     let speed = isDeleting ? 55 : 110;
@@ -31,7 +33,7 @@ if (typing) {
       speed = 400;
     }
 
-    setTimeout(typeEffect, speed);
+    typingTimer = setTimeout(typeEffect, speed);
   }
 
   typeEffect();
@@ -157,8 +159,11 @@ function showToast(message, type = "success") {
 // =======================
 // EmailJS Contact Form
 // =======================
+// Both scripts use defer, so EmailJS is guaranteed to be loaded by now
 if (typeof emailjs !== "undefined") {
   emailjs.init("eTl6eGjIuIEZNHmXY");
+  // NOTE: Enable domain restriction in your EmailJS dashboard
+  // to prevent abuse (only allow genzxr.in)
 }
 
 const contactForm = document.getElementById("contact-form");
@@ -202,10 +207,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!modal || !frame || !closeBtn) return;
 
+  // SECURITY: Whitelist allowed preview URL patterns to prevent XSS via iframe injection
+  const ALLOWED_PREVIEW_PATTERNS = [
+    /^demo\//,                          // Local demo pages
+    /^https:\/\/(www\.)?genzxr\.in\//   // Own domain
+  ];
+
+  function isAllowedPreviewUrl(url) {
+    return ALLOWED_PREVIEW_PATTERNS.some(pattern => pattern.test(url));
+  }
+
   document.querySelectorAll(".project-btn.preview").forEach(btn => {
     btn.addEventListener("click", e => {
       e.preventDefault();
       const url = btn.dataset.previewUrl;
+
+      if (!url || !isAllowedPreviewUrl(url)) {
+        console.warn("Blocked suspicious preview URL:", url);
+        showToast("Preview unavailable for this URL.", "error");
+        return;
+      }
+
       frame.src = url;
       if (openSiteBtn) openSiteBtn.href = url;
       modal.classList.add("active");

@@ -5,11 +5,23 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<!-- Security: Content Security Policy -->
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self';
+    script-src 'self' https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com https://unpkg.com;
+    frame-src 'self';
+    img-src 'self' data: https:;
+    connect-src https://api.emailjs.com;" />
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
 <meta property="og:title" content="Rohit Mane | Freelance Web Developer" />
 <meta property="og:description" content="Custom websites for businesses — fast, responsive, and built to convert. Java & Frontend Developer." />
 <meta property="og:url" content="https://genzxr.in" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="https://genzxr.in/preview.png">
+<meta property="og:image" content="https://genzxr.in/preview.png" />
 
 <title>Rohit Mane | Freelance Web Developer</title>
 
@@ -100,9 +112,9 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
       </div>
 
       <div class="hero-socials">
-        <a href="https://github.com/RohitMane2005" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-        <a href="https://www.linkedin.com/in/rohit-mane-570487333/" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitbusiness9115@gmail.com" target="_blank" rel="noopener" aria-label="Email"><i class='bx bx-envelope'></i></a>
+        <a href="https://github.com/RohitMane2005" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/rohit-mane-570487333/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitbusiness9115@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email"><i class='bx bx-envelope'></i></a>
       </div>
     </div>
   </section>
@@ -251,7 +263,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
           <p>Menu, reservations, about section, testimonials — everything a dining business needs online.</p>
           <div class="demo-stack"><span>HTML</span><span>CSS</span><span>JS</span></div>
           <div class="demo-actions">
-            <a href="demo/restaurant/index.html" target="_blank" class="demo-btn open">Open Demo ↗</a>
+            <a href="demo/restaurant/index.html" target="_blank" rel="noopener noreferrer" class="demo-btn open">Open Demo ↗</a>
             <button class="demo-btn preview project-btn" data-preview-url="demo/restaurant/index.html">Preview</button>
           </div>
         </div>
@@ -268,7 +280,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
           <p>Services, booking form, gallery, testimonials. Elegant design for beauty businesses.</p>
           <div class="demo-stack"><span>HTML</span><span>CSS</span><span>JS</span></div>
           <div class="demo-actions">
-            <a href="demo/salon/index.html" target="_blank" class="demo-btn open">Open Demo ↗</a>
+            <a href="demo/salon/index.html" target="_blank" rel="noopener noreferrer" class="demo-btn open">Open Demo ↗</a>
             <button class="demo-btn preview project-btn" data-preview-url="demo/salon/index.html">Preview</button>
           </div>
         </div>
@@ -285,7 +297,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
           <p>Programs, pricing plans, free trial signup. Bold, high-energy design for fitness brands.</p>
           <div class="demo-stack"><span>HTML</span><span>CSS</span><span>JS</span></div>
           <div class="demo-actions">
-            <a href="demo/gym/index.html" target="_blank" class="demo-btn open">Open Demo ↗</a>
+            <a href="demo/gym/index.html" target="_blank" rel="noopener noreferrer" class="demo-btn open">Open Demo ↗</a>
             <button class="demo-btn preview project-btn" data-preview-url="demo/gym/index.html">Preview</button>
           </div>
         </div>
@@ -302,7 +314,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
           <p>Portfolio gallery, service packages, about, and enquiry form. Perfect for photographers.</p>
           <div class="demo-stack"><span>HTML</span><span>CSS</span><span>JS</span></div>
           <div class="demo-actions">
-            <a href="demo/photography/index.html" target="_blank" class="demo-btn open">Open Demo ↗</a>
+            <a href="demo/photography/index.html" target="_blank" rel="noopener noreferrer" class="demo-btn open">Open Demo ↗</a>
             <button class="demo-btn preview project-btn" data-preview-url="demo/photography/index.html">Preview</button>
           </div>
         </div>
@@ -319,7 +331,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
           <p>Specialties, doctors team, appointment booking. Professional design for healthcare.</p>
           <div class="demo-stack"><span>HTML</span><span>CSS</span><span>JS</span></div>
           <div class="demo-actions">
-            <a href="demo/clinic/index.html" target="_blank" class="demo-btn open">Open Demo ↗</a>
+            <a href="demo/clinic/index.html" target="_blank" rel="noopener noreferrer" class="demo-btn open">Open Demo ↗</a>
             <button class="demo-btn preview project-btn" data-preview-url="demo/clinic/index.html">Preview</button>
           </div>
         </div>
@@ -514,7 +526,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
         <h3>DSA Practice Programs</h3>
         <p>Collection of Java programs implementing core data structures and algorithms such as arrays, linked lists, recursion, and sorting.</p>
         <div class="project-buttons">
-          <a href="https://github.com/RohitMane2005/JavaDSA" class="project-btn code">View Code</a>
+          <a href="https://github.com/RohitMane2005/JavaDSA" target="_blank" rel="noopener noreferrer" class="project-btn code">View Code</a>
         </div>
       </div>
 
@@ -523,7 +535,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
         <p>Personal portfolio built using HTML, CSS, and JavaScript with responsive layout, smooth animations, and clean UI design.</p>
         <p class="tech"><strong>Tech:</strong> HTML, CSS, JavaScript</p>
         <div class="project-buttons">
-          <a href="https://github.com/RohitMane2005/portfolio" class="project-btn code">View Code</a>
+          <a href="https://github.com/RohitMane2005/portfolio" target="_blank" rel="noopener noreferrer" class="project-btn code">View Code</a>
           <a href="#" class="project-btn preview" data-preview-url="https://www.genzxr.in/">Live Preview</a>
         </div>
       </div>
@@ -533,7 +545,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
         <p>Console-based Library Management System built using Java, JDBC, and MySQL. Implements role-based access (Admin/User).</p>
         <p class="tech"><strong>Tech:</strong> Java, JDBC, MySQL, DAO Pattern</p>
         <div class="project-buttons">
-          <a href="https://github.com/RohitMane2005/library-management-system" target="_blank" class="project-btn code">View Code</a>
+          <a href="https://github.com/RohitMane2005/library-management-system" target="_blank" rel="noopener noreferrer" class="project-btn code">View Code</a>
         </div>
       </div>
 
@@ -558,19 +570,19 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
     </div>
 
     <div class="links">
-      <a href="https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" target="_blank" class="link-card" data-category="dsa">
+      <a href="https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" target="_blank" rel="noopener noreferrer" class="link-card" data-category="dsa">
         🚀 Striver DSA Sheet <span>Interview Prep</span>
       </a>
-      <a href="https://roadmap.sh/frontend" target="_blank" class="link-card" data-category="web">
+      <a href="https://roadmap.sh/frontend" target="_blank" rel="noopener noreferrer" class="link-card" data-category="web">
         🌐 Frontend Roadmap <span>Beginner → Advanced</span>
       </a>
-      <a href="https://docs.google.com/document/d/1oh2Bzq-MC13CtXWPHgeKITWTYLIcPM7u/edit?usp=sharing" target="_blank" class="link-card" data-category="dsa">
+      <a href="https://docs.google.com/document/d/1oh2Bzq-MC13CtXWPHgeKITWTYLIcPM7u/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="link-card" data-category="dsa">
         ☕ Java Developer Roadmap <span>Core → Advanced</span>
       </a>
-      <a href="https://scholarships.gov.in/" target="_blank" class="link-card" data-category="scholarship">
+      <a href="https://scholarships.gov.in/" target="_blank" rel="noopener noreferrer" class="link-card" data-category="scholarship">
         💰 National Scholarship Portal <span>Govt Financial Aid</span>
       </a>
-      <a href="https://drive.google.com/" target="_blank" class="link-card" data-category="pdf">
+      <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="link-card" data-category="pdf">
         📄 My Notes & PDFs <span>Java • DSA • Web</span>
       </a>
     </div>
@@ -583,14 +595,14 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
     <p class="section-sub">Tell me about your business and I'll get back to you within 24 hours with a free quote.</p>
 
     <form id="contact-form">
-      <input type="text" name="company" tabindex="-1" autocomplete="off" class="hidden" />
+      <input type="text" name="company" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 
       <div class="form-row">
-        <input type="text" name="from_name" placeholder="Your Name" required>
-        <input type="email" name="from_email" placeholder="Your Email" required>
+        <input type="text" name="from_name" placeholder="Your Name" required maxlength="100">
+        <input type="email" name="from_email" placeholder="Your Email" required maxlength="150">
       </div>
 
-      <input type="text" name="business_type" placeholder="Business Type (e.g. Restaurant, Clinic, Salon...)">
+      <input type="text" name="business_type" placeholder="Business Type (e.g. Restaurant, Clinic, Salon...)" maxlength="100">
 
       <select name="budget" class="form-select">
         <option value="" disabled selected>Estimated Budget</option>
@@ -600,7 +612,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
         <option value="discuss">Not sure, let's discuss</option>
       </select>
 
-      <textarea name="message" placeholder="Tell me about your project — what pages do you need, any features, your deadline?" required></textarea>
+      <textarea name="message" placeholder="Tell me about your project — what pages do you need, any features, your deadline?" required maxlength="2000"></textarea>
 
       <button type="submit" id="submit-btn">
         <span class="btn-text">Send Message</span>
@@ -627,9 +639,9 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
       </div>
 
       <div class="footer-social">
-        <a href="https://github.com/rohitmane2005" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-        <a href="https://www.linkedin.com/in/rohit-mane-570487333/" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitbusiness9115@gmail.com" target="_blank" rel="noopener" aria-label="Email"><i class='bx bx-envelope'></i></a>
+        <a href="https://github.com/rohitmane2005" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/rohit-mane-570487333/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitbusiness9115@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email"><i class='bx bx-envelope'></i></a>
       </div>
     </div>
 
@@ -654,7 +666,7 @@ href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 
