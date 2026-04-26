@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, memo } from 'react'
 import { motion } from 'framer-motion'
 import { BiLogoGithub, BiLogoLinkedin, BiEnvelope } from 'react-icons/bi'
 
@@ -7,6 +7,40 @@ const roles = [
   'Java & Frontend Engineer',
   'Building Sites That Convert',
 ]
+
+// Animated counter — defined OUTSIDE Hero to avoid re-creation on every typing re-render
+const Counter = memo(function Counter({ target, suffix = '' }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true
+          const duration = 1500
+          const startTime = performance.now()
+          const num = parseInt(target) || 0
+
+          const animate = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1)
+            const eased = 1 - Math.pow(1 - progress, 3)
+            setCount(Math.floor(eased * num))
+            if (progress < 1) requestAnimationFrame(animate)
+          }
+          requestAnimationFrame(animate)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.5 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [target])
+
+  return <strong ref={ref}>{count}{suffix}</strong>
+})
 
 export default function Hero() {
   const [text, setText] = useState('')
@@ -36,39 +70,6 @@ export default function Hero() {
     setText(current.substring(0, charIndex))
     return () => clearTimeout(timerRef.current)
   }, [charIndex, isDeleting, roleIndex])
-
-  // Animated counter
-  function Counter({ target, suffix = '' }) {
-    const [count, setCount] = useState(0)
-    const ref = useRef(null)
-
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            let start = 0
-            const duration = 1500
-            const startTime = performance.now()
-            const num = parseInt(target) || 0
-
-            const animate = (now) => {
-              const progress = Math.min((now - startTime) / duration, 1)
-              const eased = 1 - Math.pow(1 - progress, 3)
-              setCount(Math.floor(eased * num))
-              if (progress < 1) requestAnimationFrame(animate)
-            }
-            requestAnimationFrame(animate)
-            observer.unobserve(entry.target)
-          }
-        },
-        { threshold: 0.5 }
-      )
-      if (ref.current) observer.observe(ref.current)
-      return () => observer.disconnect()
-    }, [target])
-
-    return <strong ref={ref}>{count}{suffix}</strong>
-  }
 
   return (
     <section id="home" className="hero">
