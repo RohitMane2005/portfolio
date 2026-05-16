@@ -22,9 +22,10 @@ export default function BackgroundCanvas() {
         }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.1} />
-          <pointLight position={[10, 10, 10]} intensity={0.4} color="#00f2ff" />
-          <pointLight position={[-10, -5, 5]} intensity={0.2} color="#38bdf8" />
+          <ambientLight intensity={0.08} />
+          <pointLight position={[10, 10, 10]} intensity={0.35} color="#667eea" />
+          <pointLight position={[-10, -5, 5]} intensity={0.2} color="#764ba2" />
+          <pointLight position={[0, 8, -5]} intensity={0.15} color="#818cf8" />
           <ParticleField />
           <HeroGeometry />
           <PostProcessing />

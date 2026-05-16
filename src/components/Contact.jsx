@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
+import { BiLogoGithub, BiLogoLinkedin, BiEnvelope } from 'react-icons/bi'
 import { SectionReveal, RevealItem } from './SectionReveal'
 
 export default function Contact({ showToast }) {
@@ -28,41 +29,68 @@ export default function Contact({ showToast }) {
   }
 
   return (
-    <SectionReveal id="contact" className="contact">
-      <RevealItem>
-        <p className="section-label center">Get In Touch</p>
-        <h2 className="section-heading center">Ready to build your website?</h2>
-        <p className="section-sub">Tell me about your business and I'll get back to you within 24 hours with a free quote.</p>
-      </RevealItem>
+    <SectionReveal>
+      <section id="contact">
+        <RevealItem>
+          <p className="section-label center">Let's Connect</p>
+          <h2 className="section-heading center">Get In Touch</h2>
+          <p className="section-sub">
+            Have a project idea, want to collaborate, or just say hello? I'd love to hear from you.
+          </p>
+        </RevealItem>
 
-      <RevealItem>
-        <form ref={formRef} onSubmit={handleSubmit}>
-          <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+        <RevealItem>
+          <div className="contact-grid">
+            <div className="contact-info">
+              <h3>Let's build something<br /><span className="gradient-text">incredible</span> together.</h3>
+              <p>
+                Whether you need a full-stack web application, an AI-powered platform,
+                or a stunning portfolio — I'm ready to bring your vision to life.
+              </p>
+              <div className="contact-links">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitbusiness9115@gmail.com" target="_blank" rel="noopener noreferrer" className="contact-link">
+                  <span className="contact-link-icon"><BiEnvelope /></span>
+                  <div className="contact-link-text">
+                    <span>Email</span>
+                    <strong>rohitbusiness9115@gmail.com</strong>
+                  </div>
+                </a>
+                <a href="https://github.com/RohitMane2005" target="_blank" rel="noopener noreferrer" className="contact-link">
+                  <span className="contact-link-icon"><BiLogoGithub /></span>
+                  <div className="contact-link-text">
+                    <span>GitHub</span>
+                    <strong>RohitMane2005</strong>
+                  </div>
+                </a>
+                <a href="https://www.linkedin.com/in/rohit-mane-570487333/" target="_blank" rel="noopener noreferrer" className="contact-link">
+                  <span className="contact-link-icon"><BiLogoLinkedin /></span>
+                  <div className="contact-link-text">
+                    <span>LinkedIn</span>
+                    <strong>Rohit Mane</strong>
+                  </div>
+                </a>
+              </div>
+            </div>
 
-          <div className="form-row">
-            <input type="text" name="from_name" placeholder="Your Name" required maxLength={100} />
-            <input type="email" name="from_email" placeholder="Your Email" required maxLength={150} />
+            <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
+              <input type="text" name="company" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} aria-hidden="true" />
+
+              <div className="form-row">
+                <input type="text" name="from_name" placeholder="Name" required maxLength={100} />
+                <input type="email" name="from_email" placeholder="Email" required maxLength={150} />
+              </div>
+
+              <input type="text" name="subject" placeholder="Subject" maxLength={200} />
+
+              <textarea name="message" placeholder="Your message..." required maxLength={2000} />
+
+              <button type="submit" disabled={loading}>
+                {loading ? <span className="spinner" /> : 'Send Message →'}
+              </button>
+            </form>
           </div>
-
-          <input type="text" name="business_type" placeholder="Business Type (e.g. Restaurant, Clinic, Salon...)" maxLength={100} />
-
-          <select name="budget" className="form-select" defaultValue="">
-            <option value="" disabled>Estimated Budget</option>
-            <option value="starter">₹4,999 – Starter</option>
-            <option value="business">₹9,999 – Business</option>
-            <option value="premium">₹15,000+ – Premium / Custom</option>
-            <option value="discuss">Not sure, let's discuss</option>
-          </select>
-
-          <textarea name="message" placeholder="Tell me about your project — what pages do you need, any features, your deadline?" required maxLength={2000} />
-
-          <button type="submit" disabled={loading}>
-            {loading ? <span className="spinner" /> : 'Send Message'}
-          </button>
-
-          <p id="form-status" />
-        </form>
-      </RevealItem>
+        </RevealItem>
+      </section>
     </SectionReveal>
   )
 }

@@ -2,18 +2,16 @@ import { useState, useEffect, useCallback } from 'react'
 import { BiMenu, BiX } from 'react-icons/bi'
 
 const links = [
-  { href: '#home', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#projects', label: 'Work' },
-  { href: '#process', label: 'Process' },
-  { href: '#pricing', label: 'Pricing' },
-  { href: '#resources', label: 'Resources' },
+  { href: '#skills-orbit', label: 'Skills' },
+  { href: '#timeline', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
+  const [scrolled, setScrolled] = useState(false)
 
   const close = useCallback(() => {
     setOpen(false)
@@ -29,6 +27,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handler = () => {
+      setScrolled(window.scrollY > 50)
       const sections = document.querySelectorAll('section[id]')
       let current = ''
       sections.forEach((s) => {
@@ -49,8 +48,10 @@ export default function Navbar() {
   }, [close])
 
   return (
-    <header className="navbar">
-      <div className="logo">XSO<span>R</span></div>
+    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <a href="#home" className="logo" onClick={close}>
+        XSO<span>R</span>
+      </a>
 
       <button className="menu-icon" onClick={toggle} aria-label="Toggle navigation" aria-expanded={open}>
         {open ? <BiX /> : <BiMenu />}
@@ -67,7 +68,7 @@ export default function Navbar() {
             {l.label}
           </a>
         ))}
-        <a href="#contact" className="nav-cta" onClick={close}>Let's Talk</a>
+        <a href="#contact" className="nav-cta" onClick={close}>Contact</a>
       </nav>
     </header>
   )
