@@ -18,8 +18,12 @@ const Counter = memo(function Counter({ target, suffix = '', prefix = '' }) {
           const animate = (now) => {
             const progress = Math.min((now - startTime) / duration, 1)
             const eased = 1 - Math.pow(1 - progress, 4)
-            setCount(Math.floor(eased * num))
-            if (progress < 1) requestAnimationFrame(animate)
+            if (progress >= 1) {
+              setCount(num)
+            } else {
+              setCount(Math.floor(eased * num))
+              requestAnimationFrame(animate)
+            }
           }
           requestAnimationFrame(animate)
           observer.unobserve(entry.target)
@@ -36,15 +40,15 @@ const Counter = memo(function Counter({ target, suffix = '', prefix = '' }) {
 
 const stats = [
   { target: 3, suffix: '+', label: 'Production Apps' },
-  { target: 95, suffix: '%', label: 'AI Accuracy' },
-  { target: 15, suffix: '+', label: 'Technologies' },
+  { target: 95, suffix: '%', label: 'ML Confidence' },
+  { target: 40, suffix: '%', label: 'Triage Reduction' },
   { target: 30, suffix: '%+', label: 'Engagement Boost' },
 ]
 
 export default function StatsSection() {
   return (
-    <SectionReveal>
-      <section style={{ padding: '40px clamp(24px, 8vw, 12%)', position: 'relative', zIndex: 1 }}>
+    <SectionReveal as="div">
+      <section style={{ padding: '40px clamp(24px, 8vw, 12%)', position: 'relative' }}>
         <div className="stats-grid">
           {stats.map((s, i) => (
             <RevealItem key={i}>

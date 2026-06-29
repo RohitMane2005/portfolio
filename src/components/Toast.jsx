@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Toast({ message, type = 'success' }) {
@@ -6,7 +5,7 @@ export default function Toast({ message, type = 'success' }) {
     <AnimatePresence>
       <motion.div
         className={`toast ${type}`}
-        initial={{ opacity: 0, y: 30, x: 0 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 30 }}
         transition={{ duration: 0.4 }}

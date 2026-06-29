@@ -6,34 +6,34 @@ const timeline = [
     year: '2024–2025',
     title: 'Full-Stack AI Developer',
     org: 'PathShashtra & Gitriage',
-    desc: 'Built production-grade AI platforms using Spring Boot, React, PostgreSQL, and LLM APIs. Designed enterprise security architectures with JWT/RBAC. Integrated NLP pipelines achieving 95% confidence scoring.',
+    desc: 'Built production-grade AI platforms using Spring Boot, React, PostgreSQL, and LLM APIs. Implemented enterprise JWT/RBAC security. Integrated NLP pipelines achieving 95% confidence scoring — reducing manual triage by ~40%.',
     type: 'project',
   },
   {
-    year: '2023–Present',
-    title: 'Freelance Web Developer',
-    org: 'Self-Employed',
-    desc: 'Designing and deploying responsive business websites for restaurants, clinics, salons, and more. 5+ projects delivered with 100% custom code, 3-7 day turnaround.',
-    type: 'work',
+    year: '2024',
+    title: 'State-Level Buildathon Finalist',
+    org: 'Institute Representative',
+    desc: 'Selected to represent institute at a state-level hackathon. Designed an AI-based smart monitoring system featuring a real-time processing pipeline and anomaly detection.',
+    type: 'achievement',
   },
   {
-    year: '2023–Present',
-    title: 'B.Tech Computer Science',
-    org: 'University Studies',
-    desc: 'Strong foundations in DSA, OOP, DBMS, and software engineering. Active competitive programmer and open-source contributor.',
+    year: 'Aug 2023–May 2026',
+    title: 'B.Com IT — CGPA 8.27/10',
+    org: 'Dhananjayrao Gadgil College of Commerce, Satara',
+    desc: 'Bachelor of Commerce in Information Technology. Strong foundations in DSA, OOP, DBMS, and software engineering.',
     type: 'education',
   },
 ]
 
 const typeColors = {
-  project: '#7c6cf0',
-  work: '#764ba2',
-  education: '#a78bfa',
+  project: '#0071e3',
+  achievement: '#f59e0b',
+  education: '#6e6e73',
 }
 
 export default function Timeline() {
   return (
-    <SectionReveal>
+    <SectionReveal as="div">
       <section id="timeline">
         <RevealItem>
           <p className="section-label center">Journey</p>
@@ -48,7 +48,7 @@ export default function Timeline() {
             <RevealItem key={i}>
               <motion.div
                 className="timeline-item"
-                whileHover={{ x: 6 }}
+                whileHover={{ x: 4 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 <div className="timeline-marker" style={{ background: typeColors[item.type] }}>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { BiLogoGithub, BiLinkExternal } from 'react-icons/bi'
 import { SectionReveal, RevealItem } from './SectionReveal'
+import ProjectCanvas from '../scene/ProjectModels'
 
 const projects = [
   {
@@ -10,7 +11,7 @@ const projects = [
     tech: ['Spring Boot', 'React', 'PostgreSQL', 'JWT', 'Groq AI', 'Docker'],
     year: '2024–2025',
     code: 'https://github.com/RohitMane2005/PathShashtra',
-    icon: '🧠',
+    model: 'brain',
     highlights: [
       'Enterprise JWT + RBAC security across all endpoints',
       'LLM-powered study plan & career roadmap generation',
@@ -24,7 +25,7 @@ const projects = [
     tech: ['Spring Boot', 'React', 'FastAPI', 'scikit-learn', 'WebSocket', 'Docker'],
     year: '2024',
     code: 'https://github.com/RohitMane2005/Gitriage',
-    icon: '⚡',
+    model: 'lightning',
     highlights: [
       'NLP pipeline: TF-IDF + 80+ regex patterns',
       'Real-time WebSocket notifications',
@@ -34,23 +35,23 @@ const projects = [
   {
     title: 'Developer Portfolio',
     subtitle: 'Immersive 3D Web Experience',
-    desc: 'Performance-optimized portfolio with 3D animations, glassmorphism UI, and interactive particle systems — built to impress at first glance.',
+    desc: 'Performance-optimized portfolio with 3D animations, clean UI, and interactive elements — built to impress at first glance.',
     tech: ['React', 'Three.js', 'Framer Motion', 'EmailJS'],
     year: '2023–Present',
     code: 'https://github.com/RohitMane2005/portfolio',
     live: 'https://www.genzxr.in/',
-    icon: '🚀',
+    model: 'warp',
     highlights: [
       'React Three Fiber with post-processing effects',
-      'Custom cursor, particle trails, magnetic buttons',
-      'EmailJS + reCAPTCHA v3 secure contact form',
+      'Smooth scroll-triggered animations',
+      'Secure EmailJS contact form with spam protection',
     ],
   },
 ]
 
 export default function FeaturedProjects() {
   return (
-    <SectionReveal>
+    <SectionReveal as="div">
       <section id="projects" className="projects-section">
         <RevealItem>
           <p className="section-label center">Selected Work</p>
@@ -65,7 +66,7 @@ export default function FeaturedProjects() {
             <RevealItem key={i}>
               <motion.div
                 className="featured-project"
-                whileHover={{ y: -4 }}
+                whileHover={{ y: -3 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 20 }}
               >
                 <div className="project-info">
@@ -73,10 +74,10 @@ export default function FeaturedProjects() {
                   <h3>{p.title} <span style={{ fontWeight: 400, fontSize: '0.85em', color: 'var(--text-secondary)' }}>— {p.subtitle}</span></h3>
                   <p>{p.desc}</p>
 
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '20px' }}>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '5px', marginBottom: '16px' }}>
                     {p.highlights.map((h, j) => (
-                      <li key={j} style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                        <span style={{ color: 'var(--accent)', fontSize: '0.6rem' }}>▸</span>
+                      <li key={j} style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                        <span style={{ color: 'var(--accent)', fontSize: '0.55rem' }}>▸</span>
                         {h}
                       </li>
                     ))}
@@ -99,7 +100,7 @@ export default function FeaturedProjects() {
                 </div>
 
                 <div className="project-visual">
-                  <div className="project-visual-inner">{p.icon}</div>
+                  <ProjectCanvas type={p.model} />
                 </div>
               </motion.div>
             </RevealItem>

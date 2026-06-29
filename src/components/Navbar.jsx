@@ -49,27 +49,29 @@ export default function Navbar() {
 
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <a href="#home" className="logo" onClick={close}>
-        XSO<span>R</span>
-      </a>
+      <div className="navbar-inner">
+        <a href="#home" className="logo" onClick={close}>
+          XSO<span>R</span>
+        </a>
 
-      <button className="menu-icon" onClick={toggle} aria-label="Toggle navigation" aria-expanded={open}>
-        {open ? <BiX /> : <BiMenu />}
-      </button>
+        <button className="menu-icon" onClick={toggle} aria-label="Toggle navigation" aria-expanded={open}>
+          {open ? <BiX /> : <BiMenu />}
+        </button>
 
-      <nav className={`nav-links ${open ? 'active' : ''}`}>
-        {links.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            className={active === l.href.slice(1) ? 'active' : ''}
-            onClick={close}
-          >
-            {l.label}
-          </a>
-        ))}
-        <a href="#contact" className="nav-cta" onClick={close}>Contact</a>
-      </nav>
+        <nav className={`nav-links ${open ? 'active' : ''}`}>
+          {links.map((l) => (
+            <a
+              key={l.href}
+              href={l.href}
+              className={active === l.href.slice(1) ? 'active' : ''}
+              onClick={close}
+            >
+              {l.label}
+            </a>
+          ))}
+          <a href="#contact" className="nav-cta" onClick={close}>Contact</a>
+        </nav>
+      </div>
     </header>
   )
 }

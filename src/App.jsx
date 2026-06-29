@@ -1,11 +1,4 @@
 import { useState, useCallback } from 'react'
-import BackgroundCanvas from './scene/BackgroundCanvas'
-import CustomCursor from './components/CustomCursor'
-import ParticleTrail from './components/ParticleTrail'
-import LoadingScreen from './components/LoadingScreen'
-import ScrollProgress from './components/ScrollProgress'
-import FloatingControls from './components/FloatingControls'
-import EasterEgg from './components/EasterEgg'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TerminalIntro from './components/TerminalIntro'
@@ -17,6 +10,7 @@ import FeaturedProjects from './components/FeaturedProjects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Toast from './components/Toast'
+import LoadingScreen from './components/LoadingScreen'
 
 export default function App() {
   const [toast, setToast] = useState(null)
@@ -29,25 +23,15 @@ export default function App() {
   return (
     <>
       <LoadingScreen />
-      <CustomCursor />
-      <ParticleTrail />
-      <ScrollProgress />
-      <FloatingControls />
-      <EasterEgg />
-      <BackgroundCanvas />
       <Navbar />
       <main>
         <Hero />
         <TerminalIntro />
-        <div className="section-divider" />
         <About />
         <SkillsOrbit />
         <StatsSection />
-        <div className="section-divider" />
         <Timeline />
-        <div className="section-divider" />
         <FeaturedProjects />
-        <div className="section-divider" />
         <Contact showToast={showToast} />
       </main>
       <Footer />

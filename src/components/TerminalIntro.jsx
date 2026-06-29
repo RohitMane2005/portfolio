@@ -3,13 +3,13 @@ import { SectionReveal, RevealItem } from './SectionReveal'
 
 const lines = [
   { type: 'prompt', text: '~$', cmd: ' whoami' },
-  { type: 'output', text: 'Rohit Mane — Full-Stack Developer' },
+  { type: 'output', text: 'Rohit Mane — Java Backend Developer' },
   { type: 'prompt', text: '~$', cmd: ' cat skills.txt' },
-  { type: 'output', text: 'Java · Spring Boot · React · PostgreSQL · Docker · Git' },
+  { type: 'output', text: 'Java · Spring Boot · REST APIs · JWT · React · PostgreSQL · Docker' },
   { type: 'prompt', text: '~$', cmd: ' cat status.txt' },
-  { type: 'output', text: '✓ Open to opportunities & freelance projects' },
+  { type: 'output', text: '✓ Seeking Systems Engineer role — open to opportunities' },
   { type: 'prompt', text: '~$', cmd: ' echo $MISSION' },
-  { type: 'output', text: 'Build software that solves real problems at scale' },
+  { type: 'output', text: 'Drive digital transformation across agile delivery teams' },
 ]
 
 export default function TerminalIntro() {
@@ -37,7 +37,7 @@ export default function TerminalIntro() {
   }, [])
 
   return (
-    <SectionReveal>
+    <SectionReveal as="div">
       <section id="intro" style={{ padding: 'clamp(60px, 8vh, 100px) clamp(24px, 8vw, 12%)' }}>
         <div className="terminal" ref={ref}>
           <div className="terminal-header">

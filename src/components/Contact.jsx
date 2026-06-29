@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
-import { BiLogoGithub, BiLogoLinkedin, BiEnvelope } from 'react-icons/bi'
+import { BiLogoGithub, BiLogoLinkedin, BiEnvelope, BiCode, BiPhone } from 'react-icons/bi'
 import { SectionReveal, RevealItem } from './SectionReveal'
+import ContactModel from '../scene/ContactModel'
 
 export default function Contact({ showToast }) {
   const formRef = useRef()
@@ -17,7 +18,12 @@ export default function Contact({ showToast }) {
     setLoading(true)
 
     emailjs
-      .sendForm('service_chl7279', 'template_3hzwpmg', form, 'eTl6eGjIuIEZNHmXY')
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE || 'service_chl7279',
+        import.meta.env.VITE_EMAILJS_TEMPLATE || 'template_3hzwpmg',
+        form,
+        import.meta.env.VITE_EMAILJS_KEY || 'eTl6eGjIuIEZNHmXY'
+      )
       .then(() => {
         form.reset()
         showToast("Message sent! I'll reply within 24 hours ✓", 'success')
@@ -29,7 +35,7 @@ export default function Contact({ showToast }) {
   }
 
   return (
-    <SectionReveal>
+    <SectionReveal as="div">
       <section id="contact">
         <RevealItem>
           <p className="section-label center">Let's Connect</p>
@@ -37,6 +43,12 @@ export default function Contact({ showToast }) {
           <p className="section-sub">
             Have a project idea, want to collaborate, or just say hello? I'd love to hear from you.
           </p>
+        </RevealItem>
+
+        <RevealItem>
+          <div className="contact-3d-visual">
+            <ContactModel />
+          </div>
         </RevealItem>
 
         <RevealItem>
@@ -48,7 +60,7 @@ export default function Contact({ showToast }) {
                 or a stunning portfolio — I'm ready to bring your vision to life.
               </p>
               <div className="contact-links">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rohitbusiness9115@gmail.com" target="_blank" rel="noopener noreferrer" className="contact-link">
+                <a href="mailto:rohitbusiness9115@gmail.com" className="contact-link">
                   <span className="contact-link-icon"><BiEnvelope /></span>
                   <div className="contact-link-text">
                     <span>Email</span>
@@ -62,11 +74,18 @@ export default function Contact({ showToast }) {
                     <strong>RohitMane2005</strong>
                   </div>
                 </a>
-                <a href="https://www.linkedin.com/in/rohit-mane-570487333/" target="_blank" rel="noopener noreferrer" className="contact-link">
+                <a href="https://www.linkedin.com/in/rohitmane2005/" target="_blank" rel="noopener noreferrer" className="contact-link">
                   <span className="contact-link-icon"><BiLogoLinkedin /></span>
                   <div className="contact-link-text">
                     <span>LinkedIn</span>
                     <strong>Rohit Mane</strong>
+                  </div>
+                </a>
+                <a href="https://leetcode.com/rohitmane2005" target="_blank" rel="noopener noreferrer" className="contact-link">
+                  <span className="contact-link-icon"><BiCode /></span>
+                  <div className="contact-link-text">
+                    <span>LeetCode</span>
+                    <strong>rohitmane2005</strong>
                   </div>
                 </a>
               </div>
@@ -76,16 +95,28 @@ export default function Contact({ showToast }) {
               <input type="text" name="company" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} aria-hidden="true" />
 
               <div className="form-row">
-                <input type="text" name="from_name" placeholder="Name" required maxLength={100} />
-                <input type="email" name="from_email" placeholder="Email" required maxLength={150} />
+                <div className="form-group">
+                  <label htmlFor="from_name">Name</label>
+                  <input id="from_name" type="text" name="from_name" placeholder="Your name" required maxLength={100} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="from_email">Email</label>
+                  <input id="from_email" type="email" name="from_email" placeholder="you@example.com" required maxLength={150} />
+                </div>
               </div>
 
-              <input type="text" name="subject" placeholder="Subject" maxLength={200} />
+              <div className="form-group">
+                <label htmlFor="subject">Subject</label>
+                <input id="subject" type="text" name="subject" placeholder="What's this about?" maxLength={200} />
+              </div>
 
-              <textarea name="message" placeholder="Your message..." required maxLength={2000} />
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell me about your project..." required maxLength={2000} />
+              </div>
 
               <button type="submit" disabled={loading}>
-                {loading ? <span className="spinner" /> : 'Send Message →'}
+                {loading ? <span className="spinner" /> : 'Send Message'}
               </button>
             </form>
           </div>

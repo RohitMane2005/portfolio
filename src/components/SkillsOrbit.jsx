@@ -5,7 +5,7 @@ import TechOrbit from '../scene/TechOrbit'
 
 export default function SkillsOrbit() {
   return (
-    <SectionReveal>
+    <SectionReveal as="div">
       <section id="skills-orbit">
         <RevealItem>
           <p className="section-label center">Tech Arsenal</p>
@@ -23,8 +23,8 @@ export default function SkillsOrbit() {
             >
               <Suspense fallback={null}>
                 <ambientLight intensity={0.3} />
-                <pointLight position={[5, 5, 5]} intensity={0.5} color="#667eea" />
-                <pointLight position={[-5, -3, 3]} intensity={0.3} color="#764ba2" />
+                <pointLight position={[5, 5, 5]} intensity={0.5} color="#0071e3" />
+                <pointLight position={[-5, -3, 3]} intensity={0.3} color="#42a1ec" />
                 <TechOrbit />
               </Suspense>
             </Canvas>
