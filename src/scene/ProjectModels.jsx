@@ -62,36 +62,36 @@ function NeuralBrain() {
       <Float speed={2} floatIntensity={0.3}>
         <mesh ref={coreRef}>
           <icosahedronGeometry args={[0.55, 1]} />
-          <MeshDistortMaterial color="#42a1ec" distort={0.35} speed={3} transparent opacity={0.35} emissive="#0071e3" emissiveIntensity={0.8} />
+          <MeshDistortMaterial color="#FF6B52" distort={0.35} speed={3} transparent opacity={0.35} emissive="#EA4E33" emissiveIntensity={0.8} />
         </mesh>
       </Float>
 
       <mesh>
         <sphereGeometry args={[0.45, 16, 16]} />
-        <meshBasicMaterial color="#0071e3" transparent opacity={0.08} />
+        <meshBasicMaterial color="#EA4E33" transparent opacity={0.08} />
       </mesh>
 
       {nodes.map((pos, i) => (
         <mesh key={i} position={pos}>
           <sphereGeometry args={[0.05, 8, 8]} />
-          <meshStandardMaterial color="#42a1ec" emissive="#0071e3" emissiveIntensity={1.5} transparent opacity={0.9} />
+          <meshStandardMaterial color="#FF6B52" emissive="#EA4E33" emissiveIntensity={1.5} transparent opacity={0.9} />
         </mesh>
       ))}
 
       {connectionGeometries.map((geo, i) => (
         <line key={i} geometry={geo}>
-          <lineBasicMaterial color="#0071e3" transparent opacity={0.15} />
+          <lineBasicMaterial color="#EA4E33" transparent opacity={0.15} />
         </line>
       ))}
 
       <mesh>
         <icosahedronGeometry args={[1.7, 1]} />
-        <meshStandardMaterial color="#42a1ec" wireframe transparent opacity={0.06} />
+        <meshStandardMaterial color="#FF6B52" wireframe transparent opacity={0.06} />
       </mesh>
 
       <mesh rotation={[Math.PI / 3, 0.3, 0]}>
         <torusGeometry args={[1.9, 0.008, 8, 64]} />
-        <meshBasicMaterial color="#42a1ec" transparent opacity={0.2} />
+        <meshBasicMaterial color="#EA4E33" transparent opacity={0.2} />
       </mesh>
     </group>
   )
@@ -143,23 +143,23 @@ function LightningPrism() {
       <Float speed={2.5} floatIntensity={0.4}>
         <mesh ref={prismRef}>
           <octahedronGeometry args={[0.8, 0]} />
-          <MeshDistortMaterial color="#0071e3" distort={0.15} speed={4} transparent opacity={0.5} emissive="#0071e3" emissiveIntensity={1} metalness={0.8} roughness={0.2} />
+          <MeshDistortMaterial color="#EA4E33" distort={0.15} speed={4} transparent opacity={0.5} emissive="#EA4E33" emissiveIntensity={1} metalness={0.8} roughness={0.2} />
         </mesh>
       </Float>
 
       {bolts.map((geo, i) => (
         <line key={i} geometry={geo}>
-          <lineBasicMaterial color={i % 2 === 0 ? '#42a1ec' : '#0071e3'} transparent opacity={0.3} />
+          <lineBasicMaterial color={i % 2 === 0 ? '#FF6B52' : '#EA4E33'} transparent opacity={0.3} />
         </line>
       ))}
 
       <mesh ref={ring1Ref} rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[1.2, 0.015, 8, 48]} />
-        <meshBasicMaterial color="#42a1ec" transparent opacity={0.3} />
+        <meshBasicMaterial color="#FF6B52" transparent opacity={0.3} />
       </mesh>
       <mesh ref={ring2Ref} rotation={[Math.PI / 3, 0.5, 0]}>
         <torusGeometry args={[1.5, 0.01, 8, 48]} />
-        <meshBasicMaterial color="#0071e3" transparent opacity={0.18} />
+        <meshBasicMaterial color="#EA4E33" transparent opacity={0.18} />
       </mesh>
 
       {Array.from({ length: 12 }).map((_, i) => {
@@ -169,7 +169,7 @@ function LightningPrism() {
           <Float key={i} speed={2 + Math.random() * 2} floatIntensity={0.5}>
             <mesh position={[Math.cos(angle) * r, (Math.random() - 0.5) * 1.5, Math.sin(angle) * r]}>
               <boxGeometry args={[0.04, 0.04, 0.04]} />
-              <meshStandardMaterial color="#42a1ec" emissive="#0071e3" emissiveIntensity={2} transparent opacity={0.7} />
+              <meshStandardMaterial color="#FF6B52" emissive="#EA4E33" emissiveIntensity={2} transparent opacity={0.7} />
             </mesh>
           </Float>
         )
@@ -200,13 +200,13 @@ function WarpSphere() {
       <Float speed={1.5} floatIntensity={0.3}>
         <mesh>
           <sphereGeometry args={[0.9, 64, 64]} />
-          <MeshDistortMaterial color="#42a1ec" distort={0.4} speed={2} transparent opacity={0.3} emissive="#0071e3" emissiveIntensity={0.6} />
+          <MeshDistortMaterial color="#FF6B52" distort={0.4} speed={2} transparent opacity={0.3} emissive="#EA4E33" emissiveIntensity={0.6} />
         </mesh>
       </Float>
 
       <mesh ref={wireRef}>
         <dodecahedronGeometry args={[1.3, 1]} />
-        <meshStandardMaterial color="#0071e3" wireframe transparent opacity={0.12} emissive="#0071e3" emissiveIntensity={0.3} />
+        <meshStandardMaterial color="#EA4E33" wireframe transparent opacity={0.12} emissive="#EA4E33" emissiveIntensity={0.3} />
       </mesh>
 
       {[0, 1, 2].map((i) => (
@@ -217,7 +217,7 @@ function WarpSphere() {
             Math.sin((i / 3) * Math.PI * 2) * 1.7
           ]}>
             <sphereGeometry args={[0.08, 12, 12]} />
-            <meshStandardMaterial color="#42a1ec" emissive="#42a1ec" emissiveIntensity={2} transparent opacity={0.9} />
+            <meshStandardMaterial color="#F59E0B" emissive="#F59E0B" emissiveIntensity={2} transparent opacity={0.9} />
           </mesh>
         </Float>
       ))}
@@ -225,7 +225,7 @@ function WarpSphere() {
       {[0, 1, 2].map((i) => (
         <mesh key={i} rotation={[Math.PI / (2 + i), (i * Math.PI) / 3, 0]}>
           <torusGeometry args={[1.5 + i * 0.15, 0.006, 8, 64]} />
-          <meshBasicMaterial color="#42a1ec" transparent opacity={0.1 + i * 0.04} />
+          <meshBasicMaterial color="#EA4E33" transparent opacity={0.1 + i * 0.04} />
         </mesh>
       ))}
     </group>
@@ -251,9 +251,9 @@ export default function ProjectCanvas({ type = 'brain' }) {
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.15} />
-        <pointLight position={[5, 5, 5]} intensity={0.5} color="#0071e3" />
-        <pointLight position={[-5, -3, 3]} intensity={0.3} color="#42a1ec" />
-        <pointLight position={[0, 5, -3]} intensity={0.2} color="#0071e3" />
+        <pointLight position={[5, 5, 5]} intensity={0.5} color="#EA4E33" />
+        <pointLight position={[-5, -3, 3]} intensity={0.3} color="#FF6B52" />
+        <pointLight position={[0, 5, -3]} intensity={0.2} color="#F59E0B" />
         <ModelComponent />
       </Suspense>
     </Canvas>

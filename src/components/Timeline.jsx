@@ -26,9 +26,9 @@ const timeline = [
 ]
 
 const typeColors = {
-  project: '#0071e3',
-  achievement: '#f59e0b',
-  education: '#6e6e73',
+  project: '#EA4E33',
+  achievement: '#F59E0B',
+  education: '#7D776C',
 }
 
 export default function Timeline() {
@@ -43,23 +43,25 @@ export default function Timeline() {
           </p>
         </RevealItem>
 
-        <div className="timeline-container">
+        <div className="timeline-steps">
           {timeline.map((item, i) => (
             <RevealItem key={i}>
               <motion.div
-                className="timeline-item"
+                className="timeline-step"
                 whileHover={{ x: 4 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                <div className="timeline-marker" style={{ background: typeColors[item.type] }}>
-                  <div className="timeline-line" />
+                <div>
+                  <span className="step-number">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="step-badge">{item.year}</span>
                 </div>
-                <div className="timeline-content">
-                  <span className="timeline-year">{item.year}</span>
-                  <h3>{item.title}</h3>
-                  <span className="timeline-org">{item.org}</span>
-                  <p>{item.desc}</p>
-                </div>
+                <h3 className="step-title">
+                  {item.title}
+                  <span style={{ display: 'block', fontSize: '.78rem', color: 'var(--accent)', fontWeight: 500, marginTop: '2px' }}>
+                    {item.org}
+                  </span>
+                </h3>
+                <p className="step-desc">{item.desc}</p>
               </motion.div>
             </RevealItem>
           ))}

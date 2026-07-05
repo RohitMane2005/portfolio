@@ -54,7 +54,7 @@ export default function Contact({ showToast }) {
         <RevealItem>
           <div className="contact-grid">
             <div className="contact-info">
-              <h3>Let's build something<br /><span className="gradient-text">incredible</span> together.</h3>
+              <h3>Let's build something<br /><span className="accent-text">incredible</span> together.</h3>
               <p>
                 Whether you need a full-stack web application, an AI-powered platform,
                 or a stunning portfolio — I'm ready to bring your vision to life.
@@ -116,7 +116,7 @@ export default function Contact({ showToast }) {
               </div>
 
               <button type="submit" disabled={loading}>
-                {loading ? <span className="spinner" /> : 'Send Message'}
+                {loading ? <span className="spinner" /> : 'Send Message →'}
               </button>
             </form>
           </div>

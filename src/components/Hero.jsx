@@ -97,7 +97,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.7 }}
         >
-          I build software<br />that <span className="gradient-text">scales</span>
+          I build software<br />that <span className="accent-text">scales</span>
         </motion.h1>
 
         <motion.h2
@@ -147,8 +147,26 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
         >
-          <a href="#projects" className="btn primary">View Projects</a>
+          <a href="#projects" className="btn primary">
+            View Projects <span style={{ transition: 'transform .2s', display: 'inline-block' }}>→</span>
+          </a>
           <a href="#contact" className="btn">Contact Me</a>
+        </motion.div>
+
+        <motion.div
+          style={{ marginTop: '24px', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '16px', fontSize: '.78rem', color: 'var(--text-muted)' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.1, duration: 0.5 }}
+        >
+          <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--accent)' }} />
+            Spring Boot & Java
+          </span>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--text-muted)' }} />
+            Production-grade apps
+          </span>
         </motion.div>
 
         <motion.div

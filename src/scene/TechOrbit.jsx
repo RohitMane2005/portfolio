@@ -19,10 +19,10 @@ function SkillNode({ text, position, index }) {
     <group ref={meshRef} position={position}>
       <mesh>
         <sphereGeometry args={[0.08, 12, 12]} />
-        <meshStandardMaterial color="#0071e3" emissive="#0071e3" emissiveIntensity={0.8} transparent opacity={0.9} />
+        <meshStandardMaterial color="#EA4E33" emissive="#EA4E33" emissiveIntensity={0.8} transparent opacity={0.9} />
       </mesh>
       <Billboard>
-        <Text position={[0, 0.22, 0]} fontSize={0.18} color="#e0e0ff" anchorX="center" anchorY="middle" font={undefined}>
+        <Text position={[0, 0.22, 0]} fontSize={0.18} color="#F1EDE5" anchorX="center" anchorY="middle" font={undefined}>
           {text}
         </Text>
       </Billboard>
@@ -37,7 +37,7 @@ function ConnectionLine({ from, to }) {
   }, [from, to])
   return (
     <line geometry={geometry}>
-      <lineBasicMaterial color="#0071e3" transparent opacity={0.08} />
+      <lineBasicMaterial color="#EA4E33" transparent opacity={0.08} />
     </line>
   )
 }
@@ -73,14 +73,14 @@ export default function TechOrbit() {
       <Float speed={1.5} floatIntensity={0.3}>
         <mesh>
           <icosahedronGeometry args={[0.4, 1]} />
-          <meshStandardMaterial color="#42a1ec" wireframe transparent opacity={0.3} emissive="#42a1ec" emissiveIntensity={0.5} />
+          <meshStandardMaterial color="#FF6B52" wireframe transparent opacity={0.3} emissive="#EA4E33" emissiveIntensity={0.5} />
         </mesh>
       </Float>
       {connections.map((c, i) => <ConnectionLine key={i} from={c[0]} to={c[1]} />)}
       {skills.map((skill, i) => <SkillNode key={skill} text={skill} position={positions[i]} index={i} />)}
       <mesh rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[2.8, 0.008, 8, 64]} />
-        <meshBasicMaterial color="#0071e3" transparent opacity={0.12} />
+        <meshBasicMaterial color="#EA4E33" transparent opacity={0.12} />
       </mesh>
     </group>
   )

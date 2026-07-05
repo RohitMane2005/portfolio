@@ -39,12 +39,12 @@ function EnvelopeModel() {
         <mesh ref={envelopeRef} rotation={[0, 0, Math.PI / 4]}>
           <boxGeometry args={[0.9, 0.9, 0.4, 2, 2, 2]} />
           <MeshDistortMaterial
-            color="#7c6cf0"
+            color="#EA4E33"
             distort={0.15}
             speed={3}
             transparent
             opacity={0.35}
-            emissive="#667eea"
+            emissive="#EA4E33"
             emissiveIntensity={0.6}
             metalness={0.5}
             roughness={0.3}
@@ -55,7 +55,7 @@ function EnvelopeModel() {
       {/* Pulsing glow */}
       <mesh>
         <sphereGeometry args={[0.6, 16, 16]} />
-        <meshBasicMaterial color="#764ba2" transparent opacity={0.05} />
+        <meshBasicMaterial color="#F59E0B" transparent opacity={0.05} />
       </mesh>
 
       {/* Signal dots */}
@@ -64,8 +64,8 @@ function EnvelopeModel() {
           <mesh position={s.pos}>
             <sphereGeometry args={[0.03, 8, 8]} />
             <meshStandardMaterial
-              color="#a78bfa"
-              emissive="#667eea"
+              color="#F59E0B"
+              emissive="#EA4E33"
               emissiveIntensity={2}
               transparent
               opacity={0.8}
@@ -78,7 +78,7 @@ function EnvelopeModel() {
       {[0, 1, 2].map((i) => (
         <mesh key={i} rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
           <torusGeometry args={[0.8 + i * 0.4, 0.005, 8, 48]} />
-          <meshBasicMaterial color="#667eea" transparent opacity={0.12 - i * 0.03} />
+          <meshBasicMaterial color="#EA4E33" transparent opacity={0.12 - i * 0.03} />
         </mesh>
       ))}
     </group>
@@ -95,8 +95,8 @@ export default function ContactModel() {
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.1} />
-        <pointLight position={[3, 3, 3]} intensity={0.4} color="#667eea" />
-        <pointLight position={[-3, -2, 2]} intensity={0.2} color="#764ba2" />
+        <pointLight position={[3, 3, 3]} intensity={0.4} color="#EA4E33" />
+        <pointLight position={[-3, -2, 2]} intensity={0.2} color="#F59E0B" />
         <EnvelopeModel />
       </Suspense>
     </Canvas>

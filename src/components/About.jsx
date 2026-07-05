@@ -15,11 +15,11 @@ export default function About() {
                 <AboutModel />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', position: 'relative', zIndex: 1, padding: '24px' }}>
                   <div className="code-badge">{'>'} rohit.init()</div>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'rgba(255,255,255,0.5)', lineHeight: 2 }}>
-                    <span style={{ color: '#42a1ec' }}>const</span> <span style={{ color: '#f5f5f7' }}>developer</span> = {'{'}<br />
-                    &nbsp;&nbsp;<span style={{ color: '#a78bfa' }}>name</span>: <span style={{ color: '#a5d6ff' }}>"Rohit Mane"</span>,<br />
-                    &nbsp;&nbsp;<span style={{ color: '#a78bfa' }}>role</span>: <span style={{ color: '#a5d6ff' }}>"Java Backend Developer"</span>,<br />
-                    &nbsp;&nbsp;<span style={{ color: '#a78bfa' }}>focus</span>: [<span style={{ color: '#a5d6ff' }}>"Spring Boot APIs"</span>, <span style={{ color: '#a5d6ff' }}>"AI Platforms"</span>],<br />
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 2 }}>
+                    <span style={{ color: '#EA4E33' }}>const</span> <span style={{ color: 'var(--text)' }}>developer</span> = {'{'}<br />
+                    &nbsp;&nbsp;<span style={{ color: '#F59E0B' }}>name</span>: <span style={{ color: '#BBB5AA' }}>"Rohit Mane"</span>,<br />
+                    &nbsp;&nbsp;<span style={{ color: '#F59E0B' }}>role</span>: <span style={{ color: '#BBB5AA' }}>"Java Backend Developer"</span>,<br />
+                    &nbsp;&nbsp;<span style={{ color: '#F59E0B' }}>focus</span>: [<span style={{ color: '#BBB5AA' }}>"Spring Boot APIs"</span>, <span style={{ color: '#BBB5AA' }}>"AI Platforms"</span>],<br />
                     {'}'};
                   </div>
                 </div>
@@ -30,7 +30,7 @@ export default function About() {
           <RevealItem>
             <div className="about-text">
               <p className="section-label">About Me</p>
-              <h2>Building things that<br />actually <span className="gradient-text">matter</span></h2>
+              <h2>Building things that<br />actually <span className="accent-text">matter</span></h2>
               <p>
                 I'm a Java Backend Developer with hands-on experience designing and delivering scalable,
                 production-grade full-stack applications using Spring Boot, REST APIs, JWT authentication,

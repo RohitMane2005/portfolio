@@ -23,8 +23,8 @@ export default function SkillsOrbit() {
             >
               <Suspense fallback={null}>
                 <ambientLight intensity={0.3} />
-                <pointLight position={[5, 5, 5]} intensity={0.5} color="#0071e3" />
-                <pointLight position={[-5, -3, 3]} intensity={0.3} color="#42a1ec" />
+                <pointLight position={[5, 5, 5]} intensity={0.5} color="#EA4E33" />
+                <pointLight position={[-5, -3, 3]} intensity={0.3} color="#F59E0B" />
                 <TechOrbit />
               </Suspense>
             </Canvas>

@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import MarqueeTicker from './components/MarqueeTicker'
 import TerminalIntro from './components/TerminalIntro'
 import About from './components/About'
 import SkillsOrbit from './components/SkillsOrbit'
@@ -26,6 +27,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <MarqueeTicker />
         <TerminalIntro />
         <About />
         <SkillsOrbit />

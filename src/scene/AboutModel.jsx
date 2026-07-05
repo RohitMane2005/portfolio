@@ -14,7 +14,7 @@ function CodeCube() {
     const count = 40
     const positions = new Float32Array(count * 3)
     const colors = new Float32Array(count * 3)
-    const palette = [new THREE.Color('#667eea'), new THREE.Color('#a78bfa'), new THREE.Color('#764ba2')]
+    const palette = [new THREE.Color('#EA4E33'), new THREE.Color('#F59E0B'), new THREE.Color('#FF6B52')]
 
     for (let i = 0; i < count; i++) {
       positions[i * 3] = (Math.random() - 0.5) * 4
@@ -68,12 +68,12 @@ function CodeCube() {
         <mesh ref={cubeRef}>
           <boxGeometry args={[1.2, 1.2, 1.2, 4, 4, 4]} />
           <MeshDistortMaterial
-            color="#7c6cf0"
+            color="#EA4E33"
             distort={0.2}
             speed={2.5}
             transparent
             opacity={0.25}
-            emissive="#667eea"
+            emissive="#EA4E33"
             emissiveIntensity={0.5}
             wireframe
           />
@@ -84,10 +84,10 @@ function CodeCube() {
       <mesh>
         <icosahedronGeometry args={[0.5, 2]} />
         <meshStandardMaterial
-          color="#a78bfa"
+          color="#F59E0B"
           transparent
           opacity={0.15}
-          emissive="#764ba2"
+          emissive="#EA4E33"
           emissiveIntensity={0.8}
         />
       </mesh>
@@ -96,24 +96,24 @@ function CodeCube() {
       <Float speed={2} floatIntensity={0.6}>
         <mesh position={[-0.8, 0, 0.5]} rotation={[0, 0.3, 0]}>
           <planeGeometry args={[0.3, 0.5]} />
-          <meshBasicMaterial color="#667eea" transparent opacity={0.2} side={THREE.DoubleSide} />
+          <meshBasicMaterial color="#EA4E33" transparent opacity={0.2} side={THREE.DoubleSide} />
         </mesh>
       </Float>
       <Float speed={2.5} floatIntensity={0.6}>
         <mesh position={[0.8, 0, 0.5]} rotation={[0, -0.3, 0]}>
           <planeGeometry args={[0.3, 0.5]} />
-          <meshBasicMaterial color="#a78bfa" transparent opacity={0.2} side={THREE.DoubleSide} />
+          <meshBasicMaterial color="#F59E0B" transparent opacity={0.2} side={THREE.DoubleSide} />
         </mesh>
       </Float>
 
       {/* Orbiting ring */}
       <mesh rotation={[Math.PI / 4, 0, Math.PI / 6]}>
         <torusGeometry args={[1.6, 0.008, 8, 64]} />
-        <meshBasicMaterial color="#667eea" transparent opacity={0.15} />
+        <meshBasicMaterial color="#EA4E33" transparent opacity={0.15} />
       </mesh>
       <mesh rotation={[Math.PI / 2.5, Math.PI / 3, 0]}>
         <torusGeometry args={[1.4, 0.006, 8, 64]} />
-        <meshBasicMaterial color="#a78bfa" transparent opacity={0.1} />
+        <meshBasicMaterial color="#F59E0B" transparent opacity={0.1} />
       </mesh>
     </group>
   )
@@ -129,8 +129,8 @@ export default function AboutModel() {
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.1} />
-        <pointLight position={[3, 3, 3]} intensity={0.4} color="#667eea" />
-        <pointLight position={[-3, -2, 2]} intensity={0.2} color="#764ba2" />
+        <pointLight position={[3, 3, 3]} intensity={0.4} color="#EA4E33" />
+        <pointLight position={[-3, -2, 2]} intensity={0.2} color="#F59E0B" />
         <CodeCube />
       </Suspense>
     </Canvas>
