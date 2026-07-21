@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { BiLogoGithub, BiLogoLinkedin, BiEnvelope } from 'react-icons/bi'
 
 export default function Footer() {
@@ -5,8 +6,13 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <div className="logo">XSO<span>R</span></div>
-          <p>Java Backend Developer & AI Platform Builder</p>
+          <Link to="/" className="logo">XSO<span>R</span></Link>
+          <p>Full-Service Digital Agency</p>
+        </div>
+        <div className="footer-nav">
+          <Link to="/services">Services</Link>
+          <Link to="/industries">Industries</Link>
+          <Link to="/contact">Contact</Link>
         </div>
         <div className="footer-social">
           <a href="https://github.com/RohitMane2005" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><BiLogoGithub /></a>
@@ -15,7 +21,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Rohit Mane · <span className="footer-tagline">Built with React & Three.js</span></p>
+        <p>© {new Date().getFullYear()} XSOR · <span className="footer-tagline">Built with React & Three.js</span></p>
       </div>
     </footer>
   )

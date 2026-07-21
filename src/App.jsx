@@ -1,43 +1,30 @@
-import { useState, useCallback } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import MarqueeTicker from './components/MarqueeTicker'
-import TerminalIntro from './components/TerminalIntro'
-import About from './components/About'
-import SkillsOrbit from './components/SkillsOrbit'
-import StatsSection from './components/StatsSection'
-import Timeline from './components/Timeline'
-import FeaturedProjects from './components/FeaturedProjects'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
-import Toast from './components/Toast'
 import LoadingScreen from './components/LoadingScreen'
+import ScrollToTop from './components/ScrollToTop'
+import Home from './pages/Home'
+import ServicesPage from './pages/ServicesPage'
+import ServiceDetailPage from './pages/ServiceDetailPage'
+import IndustriesPage from './pages/IndustriesPage'
+import ContactPage from './pages/ContactPage'
 
 export default function App() {
-  const [toast, setToast] = useState(null)
-
-  const showToast = useCallback((message, type = 'success') => {
-    setToast({ message, type })
-    setTimeout(() => setToast(null), 3500)
-  }, [])
-
   return (
-    <>
+    <BrowserRouter>
+      <ScrollToTop />
       <LoadingScreen />
       <Navbar />
-      <main>
-        <Hero />
-        <MarqueeTicker />
-        <TerminalIntro />
-        <About />
-        <SkillsOrbit />
-        <StatsSection />
-        <Timeline />
-        <FeaturedProjects />
-        <Contact showToast={showToast} />
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/:categoryId/:serviceSlug" element={<ServiceDetailPage />} />
+        <Route path="/industries" element={<IndustriesPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        {/* Fallback to home */}
+        <Route path="*" element={<Home />} />
+      </Routes>
       <Footer />
-      {toast && <Toast message={toast.message} type={toast.type} />}
-    </>
+    </BrowserRouter>
   )
 }

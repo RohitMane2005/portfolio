@@ -1,17 +1,22 @@
 import { useState, useEffect, useCallback } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { BiMenu, BiX } from 'react-icons/bi'
 
-const links = [
+const navLinks = [
+  { to: '/services', label: 'Services' },
+  { to: '/industries', label: 'Industries' },
+]
+
+const homeLinks = [
   { href: '#about', label: 'About' },
-  { href: '#skills-orbit', label: 'Skills' },
-  { href: '#timeline', label: 'Experience' },
   { href: '#projects', label: 'Projects' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const [active, setActive] = useState('')
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   const close = useCallback(() => {
     setOpen(false)
@@ -26,17 +31,7 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    const handler = () => {
-      setScrolled(window.scrollY > 50)
-      const sections = document.querySelectorAll('section[id]')
-      let current = ''
-      sections.forEach((s) => {
-        if (window.scrollY >= s.offsetTop - 200 && window.scrollY < s.offsetTop + s.offsetHeight - 200) {
-          current = s.id
-        }
-      })
-      setActive(current)
-    }
+    const handler = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handler, { passive: true })
     return () => window.removeEventListener('scroll', handler)
   }, [])
@@ -47,29 +42,48 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', esc)
   }, [close])
 
+  // Close mobile menu on route change
+  useEffect(() => { close() }, [location.pathname, close])
+
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-inner">
-        <a href="#home" className="logo" onClick={close}>
+        <Link to="/" className="logo" onClick={close}>
           XSO<span>R</span>
-        </a>
+        </Link>
 
-        <button className="menu-icon" onClick={toggle} aria-label="Toggle navigation" aria-expanded={open}>
+        <button
+          className="menu-icon"
+          onClick={toggle}
+          aria-label="Toggle navigation"
+          aria-expanded={open}
+        >
           {open ? <BiX /> : <BiMenu />}
         </button>
 
         <nav className={`nav-links ${open ? 'active' : ''}`}>
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={active === l.href.slice(1) ? 'active' : ''}
+          {/* Always show route-based links */}
+          {navLinks.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              className={location.pathname.startsWith(l.to) ? 'active' : ''}
               onClick={close}
             >
               {l.label}
+            </Link>
+          ))}
+
+          {/* Show anchor links only on home page */}
+          {isHome && homeLinks.map((l) => (
+            <a key={l.href} href={l.href} onClick={close}>
+              {l.label}
             </a>
           ))}
-          <a href="#contact" className="nav-cta" onClick={close}>Contact</a>
+
+          <Link to="/contact" className="nav-cta" onClick={close}>
+            Contact
+          </Link>
         </nav>
       </div>
     </header>
