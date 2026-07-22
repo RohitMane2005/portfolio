@@ -62,6 +62,13 @@ export default function Navbar() {
         </button>
 
         <nav className={`nav-links ${open ? 'active' : ''}`}>
+          {/* Show Home link when not on homepage */}
+          {!isHome && (
+            <Link to="/" onClick={close}>
+              Home
+            </Link>
+          )}
+
           {/* Always show route-based links */}
           {navLinks.map((l) => (
             <Link
