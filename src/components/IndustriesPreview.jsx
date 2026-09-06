@@ -23,13 +23,13 @@ export default function IndustriesPreview() {
             const Icon = ind.icon
             return (
               <RevealItem key={ind.name}>
-                <div className="ind-preview-card">
+                <Link to="/industries" className="ind-preview-card">
                   <div className="ind-preview-icon">
                     <Icon />
                   </div>
                   <h3>{ind.name}</h3>
                   <p>{ind.tagline}</p>
-                </div>
+                </Link>
               </RevealItem>
             )
           })}
